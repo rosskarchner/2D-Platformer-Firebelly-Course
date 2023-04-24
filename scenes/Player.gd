@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal died
+
+enum State {NORMAL, DASHING}
 
 const SPEED = 100
 const MAX_HORIZONTAL_SPEED = 150
@@ -11,18 +14,46 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Is this a dumb way to do this?
 var current_acceleration = 0.0
-var last_direction = 0
+var last_direction = 1
 var jump_termination_multiplyser = 4
+var has_double_jump = false
+var currentState = State.NORMAL
+var maxDashSpeed =  500
+var minDashSpeed = 200
+var isStateNew = true
 
+func _ready():
+	$HazardArea.connect("area_entered", self.on_hazard_area_entered)
+	
+	
 func _physics_process(delta):
-	# Add the gravity.
+	match currentState:
+		State.NORMAL:
+			physics_process_normal(delta)
+		State.DASHING:
+			physics_process_dashing(delta)
+	isStateNew = false
+
+
+func change_state(newState):
+	currentState = newState
+	isStateNew = true
+	
+func physics_process_normal(delta):
+		# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		current_acceleration = 0.0
+	else:
+		has_double_jump = true
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and (( is_on_floor() or not $CoyoteTimer.is_stopped()) or has_double_jump):
 		velocity.y = JUMP_VELOCITY
+		
+		if !is_on_floor() && $CoyoteTimer.is_stopped():
+			has_double_jump = false
+		$CoyoteTimer.stop()
 		
 	if velocity.y < 0 and not Input.is_action_pressed("ui_accept"):
 		velocity.y += gravity * jump_termination_multiplyser * delta
@@ -44,11 +75,32 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		current_acceleration = 0.0
 
+	var wasOnFloor = is_on_floor()
 	move_and_slide()
 	update_animation(direction)
+	
+	if wasOnFloor and !is_on_floor():
+		$CoyoteTimer.start()
+		
+	if Input.is_action_just_pressed("dash"):
+		call_deferred("change_state", State.DASHING)
+
+func physics_process_dashing(delta):
+	if isStateNew:
+		velocity = Vector2(maxDashSpeed * last_direction , 0.0) 
+	move_and_slide()
+
+
+	velocity.x = lerpf(0, velocity.x, pow(2.0,-8.0 * delta))
+	
+	if abs(velocity.x) < minDashSpeed:
+		call_deferred("change_state", State.NORMAL)
+		
+	update_animation(last_direction)
+		
 
 func update_animation(direction):
-	if not is_on_floor(): 
+	if not is_on_floor() or currentState == State.DASHING: 
 		$AnimatedSprite2D.play("jump")
 	
 	elif direction != 0:
@@ -60,4 +112,7 @@ func update_animation(direction):
 		
 	
 		
+func on_hazard_area_entered(_area2d):
+	emit_signal("died")
+	
 

@@ -2,11 +2,12 @@ extends CharacterBody2D
 
 signal died
 
+@export_flags_2d_physics var dashHazardMask
 enum State {NORMAL, DASHING}
 
 const SPEED = 100
 const MAX_HORIZONTAL_SPEED = 150
-const JUMP_VELOCITY = -360.0
+const JUMP_VELOCITY = -320.0
 const ACCELERATION_PER_SEC = 150
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -17,13 +18,16 @@ var current_acceleration = 0.0
 var last_direction = 1
 var jump_termination_multiplyser = 4
 var has_double_jump = false
+var has_dash = false
 var currentState = State.NORMAL
 var maxDashSpeed =  500
 var minDashSpeed = 200
 var isStateNew = true
+var defaultHazardMask
 
 func _ready():
 	$HazardArea.connect("area_entered", self.on_hazard_area_entered)
+	defaultHazardMask = $HazardArea.collision_mask
 	
 	
 func _physics_process(delta):
@@ -40,12 +44,17 @@ func change_state(newState):
 	isStateNew = true
 	
 func physics_process_normal(delta):
+	if isStateNew:
+		$DashArea/CollisionShape2D.disabled = true
+		$HazardArea.collision_mask = defaultHazardMask
+	
 		# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		current_acceleration = 0.0
 	else:
 		has_double_jump = true
+		has_dash = true
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and (( is_on_floor() or not $CoyoteTimer.is_stopped()) or has_double_jump):
@@ -82,12 +91,15 @@ func physics_process_normal(delta):
 	if wasOnFloor and !is_on_floor():
 		$CoyoteTimer.start()
 		
-	if Input.is_action_just_pressed("dash"):
+	if has_dash and Input.is_action_just_pressed("dash"):
 		call_deferred("change_state", State.DASHING)
+		has_dash=false
 
 func physics_process_dashing(delta):
 	if isStateNew:
 		velocity = Vector2(maxDashSpeed * last_direction , 0.0) 
+		$DashArea/CollisionShape2D.disabled = false
+		$HazardArea.collision_mask = dashHazardMask
 	move_and_slide()
 
 

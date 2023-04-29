@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbbr3kehcu7fk"]
+[gd_scene load_steps=9 format=3 uid="uid://cbbr3kehcu7fk"]
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_2gm0v"]
 [ext_resource type="Texture2D" uid="uid://cydjklx4fm45o" path="res://assets/enemy/character_0015.png" id="1_uuw80"]
@@ -27,6 +27,9 @@ size = Vector2(10, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygmp1"]
 size = Vector2(16.5, 4)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1kdg8"]
+radius = 12.0
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_2gm0v")
@@ -37,6 +40,7 @@ sprite_frames = SubResource("SpriteFrames_16ubg")
 animation = &"run"
 autoplay = "run"
 offset = Vector2(0, -12)
+flip_h = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -53,9 +57,24 @@ shape = SubResource("RectangleShape2D_ampee")
 
 [node name="HazardArea" type="Area2D" parent="."]
 position = Vector2(0, -1)
-collision_layer = 262144
-collision_mask = 262144
+collision_layer = 65536
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
 position = Vector2(0.25, -1)
 shape = SubResource("RectangleShape2D_ygmp1")
+
+[node name="HitBoxArea" type="Area2D" parent="."]
+position = Vector2(0, -6)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea"]
+shape = SubResource("CircleShape2D_1kdg8")
+
+[node name="TurnAroundTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="CliffDetector" type="RayCast2D" parent="."]
+position = Vector2(12, 0)
+target_position = Vector2(0, 5)

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b5lyr6r1oacdv"]
+
+[ext_resource type="FontFile" uid="uid://bomacfy2kgay6" path="res://resources/BitPotion.ttf" id="1_v0cah"]
+
+[resource]
+default_font = ExtResource("1_v0cah")
+default_font_size = 16

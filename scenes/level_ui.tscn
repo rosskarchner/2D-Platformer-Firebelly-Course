@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwjt2oxum8tk2"]
+
+[ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_ea8pg"]
+[ext_resource type="Script" path="res://scenes/level_ui.gd" id="1_opqbu"]
+[ext_resource type="Texture2D" uid="uid://dwgayypv3omgt" path="res://assets/coin/tile_0151.png" id="3_560u6"]
+[ext_resource type="LabelSettings" uid="uid://c48cmdslm6t4b" path="res://resources/outline_labelsettings.tres" id="3_c52it"]
+[ext_resource type="Texture2D" uid="uid://cna0th7a7r1i" path="res://assets/coin/tile_0152.png" id="4_w3gjh"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6oeor"]
+frames = 2
+frame_0/texture = ExtResource("3_560u6")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("4_w3gjh")
+frame_1/duration = 0.2
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource("1_opqbu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_ea8pg")
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AnimatedTexture_6oeor")
+expand_mode = 1
+
+[node name="CoinLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "10/32"
+label_settings = ExtResource("3_c52it")
+vertical_alignment = 1

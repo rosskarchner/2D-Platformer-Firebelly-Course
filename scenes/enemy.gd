@@ -25,7 +25,6 @@ func _process(delta):
 	
 
 func change_direction():
-	print("direction changed")
 	direction *= -1
 	var sprite = $AnimatedSprite2D
 	var cliffDetector = $CliffDetector
@@ -33,7 +32,7 @@ func change_direction():
 	sprite.flip_h = direction.x >0
 	cliffDetector.position.x = $CliffDetector.position.x * -1
 	timer.start()
-	print("b")
+
 
 func on_goal_entered(_area2d):
 	change_direction()

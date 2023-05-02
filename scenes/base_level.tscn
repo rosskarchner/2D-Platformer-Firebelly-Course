@@ -1,12 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4ls4aj72dgw7"]
+[gd_scene load_steps=7 format=3 uid="uid://d4ls4aj72dgw7"]
 
 [ext_resource type="Script" path="res://scenes/base_level.gd" id="1_0e7vu"]
 [ext_resource type="TileSet" uid="uid://bqbnntxw5tpw5" path="res://resources/tile_set.tres" id="1_ok41j"]
+[ext_resource type="PackedScene" uid="uid://b7m4dacmu1l3o" path="res://scenes/flag.tscn" id="2_5kau8"]
 [ext_resource type="PackedScene" uid="uid://cwel5nwf3ubfv" path="res://scenes/player.tscn" id="2_cvd2g"]
+[ext_resource type="PackedScene" uid="uid://dwjt2oxum8tk2" path="res://scenes/level_ui.tscn" id="2_tj5nf"]
 [ext_resource type="PackedScene" uid="uid://ywbjuw7m3ynm" path="res://scenes/game_camera.tscn" id="3_0y7jq"]
 
-[node name="BaseLevel" type="Node"]
+[node name="BaseLevel" type="Node" groups=["base_level"]]
 script = ExtResource("1_0e7vu")
+
+[node name="LevelUI" parent="." instance=ExtResource("2_tj5nf")]
+
+[node name="Flag" parent="." instance=ExtResource("2_5kau8")]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-13, 16)

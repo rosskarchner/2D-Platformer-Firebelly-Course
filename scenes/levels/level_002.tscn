@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://duuyyc6f7jgs2"]
+
+[ext_resource type="PackedScene" uid="uid://d4ls4aj72dgw7" path="res://scenes/base_level.tscn" id="1_n3c67"]
+
+[node name="Level 002" instance=ExtResource("1_n3c67")]
+
+[node name="Flag" parent="." index="1"]
+position = Vector2(110, 18)
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(65535, 65537, 9, 0, 65537, 9, 1, 65537, 9, 2, 65537, 9, 3, 65537, 9, 65539, 65537, 11, 65538, 65537, 11, 65537, 65537, 11, 65536, 65537, 11, 131071, 65537, 11, 131070, 1, 11, 65534, 1, 9, 4, 65537, 9, 65540, 65537, 11, 65541, 65537, 11, 65542, 65537, 11, 65543, 131073, 11, 7, 131073, 9, 6, 65537, 9, 5, 65537, 9)

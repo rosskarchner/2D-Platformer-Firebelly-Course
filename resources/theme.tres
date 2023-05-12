@@ -1,7 +1,55 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b5lyr6r1oacdv"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b5lyr6r1oacdv"]
 
+[ext_resource type="Texture2D" uid="uid://o0afe3csl6a5" path="res://assets/ui/tile_0009.png" id="1_0w328"]
+[ext_resource type="Texture2D" uid="uid://h306t0u1m7dw" path="res://assets/ui/tile_0029.png" id="1_uqrag"]
 [ext_resource type="FontFile" uid="uid://bomacfy2kgay6" path="res://resources/BitPotion.ttf" id="1_v0cah"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhvo7"]
+texture = ExtResource("1_0w328")
+texture_margin_left = 5.0
+texture_margin_top = 7.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ictlr"]
+texture = ExtResource("1_uqrag")
+texture_margin_left = 13.0
+texture_margin_top = 13.0
+texture_margin_right = 13.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(0, 0, 18, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpvdo"]
+texture = ExtResource("1_uqrag")
+texture_margin_left = 13.0
+texture_margin_top = 13.0
+texture_margin_right = 13.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(0, 0, 18, 18)
+modulate_color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfxvx"]
+bg_color = Color(0, 0, 0, 0.745098)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="FontVariation" id="FontVariation_lmt4i"]
+base_font = ExtResource("1_v0cah")
+spacing_top = -4
+spacing_bottom = -2
+
 [resource]
-default_font = ExtResource("1_v0cah")
+default_font = SubResource("FontVariation_lmt4i")
 default_font_size = 16
+Button/colors/font_color = Color(0.435294, 0.243137, 0.262745, 1)
+Button/colors/font_hover_color = Color(0.435294, 0.243137, 0.262745, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_uhvo7")
+Button/styles/normal = SubResource("StyleBoxTexture_ictlr")
+Button/styles/pressed = SubResource("StyleBoxTexture_fpvdo")
+MarginContainer/constants/margin_bottom = 4
+MarginContainer/constants/margin_left = 4
+MarginContainer/constants/margin_right = 4
+MarginContainer/constants/margin_top = 4
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_xfxvx")

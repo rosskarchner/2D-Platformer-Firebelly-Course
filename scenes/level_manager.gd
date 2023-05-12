@@ -4,9 +4,6 @@ extends Node
 
 var currentLevelIndex = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	change_level(currentLevelIndex)
 
 func change_level(levelIndex):
 	currentLevelIndex = levelIndex

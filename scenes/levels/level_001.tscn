@@ -10,7 +10,7 @@
 [node name="Level_001" instance=ExtResource("1_sm0ub")]
 
 [node name="Flag" parent="." index="1"]
-position = Vector2(856, 71)
+position = Vector2(56, -32)
 
 [node name="TileMap" parent="." index="2"]
 position = Vector2(-16, 16)

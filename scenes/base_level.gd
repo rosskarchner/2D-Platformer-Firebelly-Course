@@ -2,6 +2,8 @@ extends Node
 
 signal coin_total_changed
 
+@export var levelCompleteScene: PackedScene
+
 var playerScene = preload("res://scenes/player.tscn")
 var spawnPosition = Vector2.ZERO
 var currentPlayerNode = null
@@ -36,7 +38,13 @@ func create_player():
 	register_player(playerInstance)
 
 func on_player_won():
-	$"/root/LevelManager".increment_level()
+	var levelComplete = levelCompleteScene.instantiate()
+	#levelComplete.get_node("%NextLevelButton").connect('pressed', $/root/LevelManager.increment_level)
+	add_child(levelComplete)
+	currentPlayerNode.queue_free()
+	
+#func next_level()
+	#$"/root/LevelManager".increment_level()
 
 func on_player_died():
 	currentPlayerNode.queue_free()

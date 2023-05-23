@@ -12,8 +12,8 @@ var collectedCoins = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawnPosition = $Player.global_position
-	register_player($Player)
+	spawnPosition = %Player.global_position
+	register_player(%Player)
 	
 	coin_total_change(get_tree().get_nodes_in_group("coin").size())
 	
@@ -34,7 +34,7 @@ func register_player(player):
 func create_player():
 	var playerInstance = playerScene.instantiate()
 	playerInstance.set_deferred("global_position", spawnPosition)
-	currentPlayerNode.call_deferred("add_sibling", playerInstance)
+	$PlayerRoot.call_deferred("add_child", playerInstance)
 	register_player(playerInstance)
 
 func on_player_won():
@@ -48,4 +48,6 @@ func on_player_won():
 
 func on_player_died():
 	currentPlayerNode.queue_free()
+	await get_tree().create_timer(1).timeout
+
 	create_player()

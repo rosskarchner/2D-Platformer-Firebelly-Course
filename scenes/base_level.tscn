@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4ls4aj72dgw7"]
+[gd_scene load_steps=10 format=3 uid="uid://d4ls4aj72dgw7"]
 
 [ext_resource type="Script" path="res://scenes/base_level.gd" id="1_0e7vu"]
 [ext_resource type="TileSet" uid="uid://bqbnntxw5tpw5" path="res://resources/tile_set.tres" id="1_ok41j"]
@@ -7,12 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://cwel5nwf3ubfv" path="res://scenes/player.tscn" id="2_cvd2g"]
 [ext_resource type="PackedScene" uid="uid://dwjt2oxum8tk2" path="res://scenes/level_ui.tscn" id="2_tj5nf"]
 [ext_resource type="PackedScene" uid="uid://ywbjuw7m3ynm" path="res://scenes/game_camera.tscn" id="3_0y7jq"]
+[ext_resource type="PackedScene" uid="uid://dd4dp03p6y76u" path="res://scenes/clouds.tscn" id="5_wj5d6"]
+[ext_resource type="TileSet" uid="uid://o1rg0ayolbbm" path="res://resources/decorative_tile_set.tres" id="6_1buh1"]
 
 [node name="BaseLevel" type="Node" groups=["base_level"]]
 script = ExtResource("1_0e7vu")
 levelCompleteScene = ExtResource("2_cioyb")
 
 [node name="LevelUI" parent="." instance=ExtResource("2_tj5nf")]
+
+[node name="GameCamera" parent="." instance=ExtResource("3_0y7jq")]
+position = Vector2(-13, 16)
+position_smoothing_enabled = true
+
+[node name="Clouds" parent="GameCamera" instance=ExtResource("5_wj5d6")]
 
 [node name="Flag" parent="." instance=ExtResource("2_5kau8")]
 
@@ -22,9 +30,17 @@ tile_set = ExtResource("1_ok41j")
 cell_quadrant_size = 18
 format = 2
 
-[node name="GameCamera" parent="." instance=ExtResource("3_0y7jq")]
+[node name="DecorativeTilemap" type="TileMap" parent="."]
 position = Vector2(-13, 16)
-position_smoothing_enabled = true
+tile_set = ExtResource("6_1buh1")
+cell_quadrant_size = 18
+format = 2
+
+[node name="ForeGroundTileMap" type="TileMap" parent="."]
+position = Vector2(-13, 16)
+tile_set = ExtResource("1_ok41j")
+cell_quadrant_size = 18
+format = 2
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -32,4 +48,7 @@ position_smoothing_enabled = true
 
 [node name="Hazards" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_cvd2g")]
+[node name="PlayerRoot" type="Node2D" parent="."]
+
+[node name="Player" parent="PlayerRoot" instance=ExtResource("2_cvd2g")]
+unique_name_in_owner = true

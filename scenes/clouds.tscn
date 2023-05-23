@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd4dp03p6y76u"]
+
+[ext_resource type="Texture2D" uid="uid://c6idwl5s0jdsd" path="res://assets/effects/clouds.png" id="1_mirtm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r08xg"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_i4rqf"]
+offsets = PackedFloat32Array(0, 0.181347, 0.803109, 1)
+colors = PackedColorArray(1, 1, 1, 0.0196078, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0ws2q"]
+gradient = SubResource("Gradient_i4rqf")
+
+[sub_resource type="Curve" id="Curve_8toui"]
+_data = [Vector2(0, 0.0541517), 0.0, 0.0, 0, 0, Vector2(0.3125, 1), 0.0, 0.0, 0, 0, Vector2(0.846983, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ixmf"]
+curve = SubResource("Curve_8toui")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e23or"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(400, 200, 1)
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = 180.0
+angle_max = 180.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_2ixmf")
+color_ramp = SubResource("GradientTexture1D_0ws2q")
+anim_offset_max = 1.0
+
+[node name="Clouds" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_r08xg")
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_e23or")
+texture = ExtResource("1_mirtm")
+lifetime = 20.0
+preprocess = 10.0

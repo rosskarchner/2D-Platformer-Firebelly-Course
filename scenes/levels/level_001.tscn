@@ -10,7 +10,7 @@
 [node name="Level_001" instance=ExtResource("1_sm0ub")]
 
 [node name="Flag" parent="." index="1"]
-position = Vector2(56, -32)
+position = Vector2(864, 72)
 
 [node name="TileMap" parent="." index="2"]
 position = Vector2(-16, 16)
@@ -238,5 +238,5 @@ position = Vector2(262, 376)
 [node name="Spikes2" parent="Hazards" index="10" instance=ExtResource("3_75ape")]
 position = Vector2(-310, -19)
 
-[node name="Player" parent="." index="7"]
-position = Vector2(-80, 48)
+[node name="Player" parent="PlayerRoot" index="0"]
+position = Vector2(-88, 70)

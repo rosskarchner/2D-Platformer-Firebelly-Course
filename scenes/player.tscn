@@ -1,8 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwel5nwf3ubfv"]
+[gd_scene load_steps=14 format=3 uid="uid://cwel5nwf3ubfv"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_316c3"]
 [ext_resource type="Texture2D" uid="uid://bs7pw70jpflui" path="res://assets/player/character_0000.png" id="2_de7yi"]
 [ext_resource type="Texture2D" uid="uid://dra7guhw7fwln" path="res://assets/player/character_0001.png" id="3_xco10"]
+[ext_resource type="Shader" path="res://shaders/dash_trail.gdshader" id="4_xrpac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6s7b"]
+shader = ExtResource("4_xrpac")
+shader_parameter/baseColor = Color(0.352941, 0.823529, 0.54902, 1)
+
+[sub_resource type="Curve" id="Curve_y0oum"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.897917, 0.971119), 0.0, 0.0, 0, 0, Vector2(1, 0.0469314), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6kgt5"]
+curve = SubResource("Curve_y0oum")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ruv2d"]
+lifetime_randomness = 0.15
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_6kgt5")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ug1af"]
 radius = 16.0
@@ -55,6 +76,16 @@ dashHazardMask = 262144
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="DashParticles" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_h6s7b")
+position = Vector2(0, -12)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_ruv2d")
+texture = ExtResource("2_de7yi")
+lifetime = 0.5
 
 [node name="PickupArea" type="Area2D" parent="."]
 collision_layer = 32768

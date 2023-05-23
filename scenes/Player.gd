@@ -3,6 +3,10 @@ extends CharacterBody2D
 signal died
 
 @export_flags_2d_physics var dashHazardMask
+var playerDeathScene = preload("res://scenes/player_death.tscn")
+var footstepParticles=preload("res://scenes/footstep_particles.tscn")
+var isDying = false
+
 enum State {NORMAL, DASHING}
 
 const SPEED = 100
@@ -27,6 +31,7 @@ var defaultHazardMask
 
 func _ready():
 	$HazardArea.connect("area_entered", self.on_hazard_area_entered)
+	$AnimatedSprite2D.connect("frame_changed", self.on_animated_sprite_frame_changed)
 	defaultHazardMask = $HazardArea.collision_mask
 	
 	
@@ -45,6 +50,7 @@ func change_state(newState):
 	
 func physics_process_normal(delta):
 	if isStateNew:
+		$DashParticles.emitting = false
 		$DashArea/CollisionShape2D.disabled = true
 		$HazardArea.collision_mask = defaultHazardMask
 	
@@ -59,7 +65,7 @@ func physics_process_normal(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and (( is_on_floor() or not $CoyoteTimer.is_stopped()) or has_double_jump):
 		velocity.y = JUMP_VELOCITY
-		
+		$"/root/Helpers".apply_camera_shake(0.75)
 		if !is_on_floor() && $CoyoteTimer.is_stopped():
 			has_double_jump = false
 		$CoyoteTimer.stop()
@@ -91,12 +97,19 @@ func physics_process_normal(delta):
 	if wasOnFloor and !is_on_floor():
 		$CoyoteTimer.start()
 		
+	if  !wasOnFloor and is_on_floor() and !isStateNew:
+		spawn_footprints(1.5)
+		$"/root/Helpers".apply_camera_shake(1.0)
+		
+		
 	if has_dash and Input.is_action_just_pressed("dash"):
 		call_deferred("change_state", State.DASHING)
 		has_dash=false
 
 func physics_process_dashing(delta):
 	if isStateNew:
+		$DashParticles.emitting = true
+		$"/root/Helpers".apply_camera_shake(0.75)
 		velocity = Vector2(maxDashSpeed * last_direction , 0.0) 
 		$DashArea/CollisionShape2D.disabled = false
 		$HazardArea.collision_mask = dashHazardMask
@@ -122,9 +135,29 @@ func update_animation(direction):
 	else:
 		$AnimatedSprite2D.play("idle")
 		
-	
+func kill():
+	if isDying:
+		return
+	isDying = true
+	var playerDeathInstance = playerDeathScene.instantiate()
+	playerDeathInstance.global_position = global_position
+	playerDeathInstance.velocity = velocity
+	add_sibling(playerDeathInstance)
+
+	emit_signal("died")
 		
 func on_hazard_area_entered(_area2d):
-	emit_signal("died")
+	$"/root/Helpers".apply_camera_shake(1)
+	
+	call_deferred("kill")
 	
 
+func on_animated_sprite_frame_changed():
+	if $AnimatedSprite2D.animation == "run"  and $AnimatedSprite2D.frame == 0:
+		spawn_footprints()
+		
+func spawn_footprints(scale=1.0):
+	var footsteps = footstepParticles.instantiate()
+	footsteps.global_position = global_position
+	footsteps.scale = Vector2.ONE * scale
+	add_sibling(footsteps)

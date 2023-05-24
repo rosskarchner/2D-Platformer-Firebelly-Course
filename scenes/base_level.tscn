@@ -25,19 +25,16 @@ position_smoothing_enabled = true
 [node name="Flag" parent="." instance=ExtResource("2_5kau8")]
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(-13, 16)
 tile_set = ExtResource("1_ok41j")
 cell_quadrant_size = 18
 format = 2
 
 [node name="DecorativeTilemap" type="TileMap" parent="."]
-position = Vector2(-13, 16)
 tile_set = ExtResource("6_1buh1")
 cell_quadrant_size = 18
 format = 2
 
 [node name="ForeGroundTileMap" type="TileMap" parent="."]
-position = Vector2(-13, 16)
 tile_set = ExtResource("1_ok41j")
 cell_quadrant_size = 18
 format = 2

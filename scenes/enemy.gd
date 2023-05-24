@@ -29,6 +29,9 @@ func _process(delta):
 	move_and_slide()
 	if !$Visuals/CliffDetector.is_colliding():
 		change_direction()
+		
+	if $Visuals/WallDetector.is_colliding():
+		change_direction()
 
 
 func update_visual_direction():

@@ -167,17 +167,18 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_byxxm")
 
 [node name="Visuals" type="Node2D" parent="."]
-scale = Vector2(1e-05, 1e-05)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_16ubg")
-animation = &"spawn"
+animation = &"run"
 autoplay = "spawn"
-frame_progress = 0.552645
 offset = Vector2(0, -12)
-flip_h = true
 metadata/_edit_group_ = true
+
+[node name="CliffDetector" type="RayCast2D" parent="Visuals"]
+position = Vector2(-9, -2)
+target_position = Vector2(0, 5)
 
 [node name="GoalDetector" type="Area2D" parent="."]
 collision_layer = 131072
@@ -195,7 +196,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
 position = Vector2(0.25, -1)
 shape = SubResource("RectangleShape2D_ygmp1")
-disabled = true
 
 [node name="HitBoxArea" type="Area2D" parent="."]
 position = Vector2(0, -6)
@@ -204,11 +204,3 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea"]
 shape = SubResource("CircleShape2D_1kdg8")
-disabled = true
-
-[node name="TurnAroundTimer" type="Timer" parent="."]
-wait_time = 5.0
-
-[node name="CliffDetector" type="RayCast2D" parent="."]
-position = Vector2(12, 0)
-target_position = Vector2(0, 5)

@@ -49,6 +49,7 @@ format = 2
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="PlayerRoot" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="Player" parent="PlayerRoot" instance=ExtResource("2_cvd2g")]
 unique_name_in_owner = true

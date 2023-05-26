@@ -26,6 +26,3 @@ position = Vector2(-141, -5)
 [node name="EnemySpawner3" parent="Enemies" index="3" instance=ExtResource("2_ehpic")]
 position = Vector2(-195, 69)
 startDirection = 0
-
-[node name="PlayerRoot" parent="." index="9"]
-position = Vector2(0, 12)

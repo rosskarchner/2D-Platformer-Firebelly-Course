@@ -15,9 +15,11 @@ func _ready():
 	spawnPosition = %Player.global_position
 	register_player(%Player)
 	
-	coin_total_change(get_tree().get_nodes_in_group("coin").size())
-	
+	update_coin_total()
 	$Flag.connect("player_won", self.on_player_won)
+
+func update_coin_total():
+	coin_total_change(get_tree().get_nodes_in_group("coin").size())
 	
 func coin_collected():
 	collectedCoins += 1
@@ -34,7 +36,7 @@ func register_player(player):
 func create_player():
 	var playerInstance = playerScene.instantiate()
 	playerInstance.set_deferred("global_position", spawnPosition)
-	$PlayerRoot.call_deferred("add_child", playerInstance)
+	call_deferred("add_child", playerInstance)
 	register_player(playerInstance)
 
 func on_player_won():

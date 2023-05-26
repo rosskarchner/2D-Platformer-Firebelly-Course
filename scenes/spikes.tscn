@@ -9,11 +9,12 @@ size = Vector2(16.5, 4)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 9)
 texture = ExtResource("1_2j0mf")
 offset = Vector2(0, -9)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, 8)
 collision_layer = 262144
 collision_mask = 262144
 

@@ -1,6 +1,14 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bqbnntxw5tpw5"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bqbnntxw5tpw5"]
 
 [ext_resource type="Texture2D" uid="uid://cwk41ergeo67j" path="res://assets/tiles/tiles_packed.png" id="1_3pj6q"]
+[ext_resource type="PackedScene" uid="uid://cwfq5ueltaism" path="res://scenes/spikes.tscn" id="1_hd6ox"]
+[ext_resource type="PackedScene" uid="uid://b4byvamym6doq" path="res://scenes/enemy_spawner.tscn" id="2_bka7n"]
+[ext_resource type="PackedScene" uid="uid://dguohmgfd7bvg" path="res://scenes/coin.tscn" id="3_e2tbk"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_yofco"]
+resource_name = "Hazards"
+scenes/1/scene = ExtResource("1_hd6ox")
+scenes/2/scene = ExtResource("2_bka7n")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gf8q"]
 texture = ExtResource("1_3pj6q")
@@ -813,6 +821,10 @@ texture_region_size = Vector2i(18, 18)
 2:11/0/terrains_peering_bit/top_left_corner = 0
 2:11/0/terrains_peering_bit/top_side = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rx3c8"]
+resource_name = "Collectibles"
+scenes/1/scene = ExtResource("3_e2tbk")
+
 [resource]
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
@@ -826,3 +838,5 @@ terrain_set_0/terrain_2/color = Color(0.666667, 0.0666667, 0.192157, 1)
 terrain_set_0/terrain_3/name = "Stone"
 terrain_set_0/terrain_3/color = Color(0.372549, 0.396078, 0.384314, 1)
 sources/1 = SubResource("TileSetAtlasSource_7gf8q")
+sources/0 = SubResource("TileSetScenesCollectionSource_yofco")
+sources/2 = SubResource("TileSetScenesCollectionSource_rx3c8")

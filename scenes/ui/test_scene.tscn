@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://h1dgsos74the"]
+
+[ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="1_75sek"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+custom_minimum_size = Vector2(112, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedButton" parent="." instance=ExtResource("1_75sek")]
+layout_mode = 2
+
+[node name="AnimatedButton2" parent="." instance=ExtResource("1_75sek")]
+layout_mode = 2
+
+[node name="AnimatedButton4" parent="." instance=ExtResource("1_75sek")]
+layout_mode = 2

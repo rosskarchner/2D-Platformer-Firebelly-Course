@@ -41,6 +41,7 @@ spacing_top = -4
 spacing_bottom = -2
 
 [resource]
+default_base_scale = 1.0
 default_font = SubResource("FontVariation_lmt4i")
 default_font_size = 16
 Button/colors/font_color = Color(0.435294, 0.243137, 0.262745, 1)

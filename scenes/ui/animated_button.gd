@@ -3,6 +3,7 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	custom_minimum_size = Vector2(96,24)
 	var mouse_entered = func():
 		$HoverAnimationPlayer.play("hover")
 		

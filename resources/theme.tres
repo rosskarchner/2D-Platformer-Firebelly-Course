@@ -29,11 +29,13 @@ region_rect = Rect2(0, 0, 18, 18)
 modulate_color = Color(0.333333, 0.333333, 0.333333, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfxvx"]
-bg_color = Color(0, 0, 0, 0.745098)
+bg_color = Color(0.203922, 0.333333, 0.317647, 0.878431)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+shadow_color = Color(0.117647, 0.117647, 0.117647, 0.6)
+shadow_size = 2
 
 [sub_resource type="FontVariation" id="FontVariation_lmt4i"]
 base_font = ExtResource("1_v0cah")

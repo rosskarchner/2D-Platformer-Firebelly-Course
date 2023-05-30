@@ -16,7 +16,7 @@ autostart = true
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Visuals"]
-position = Vector2(0, 9)
+position = Vector2(0, 7)
 texture = ExtResource("5_y3jc4")
 offset = Vector2(0, -12)
 metadata/_edit_group_ = true

@@ -19,8 +19,10 @@ levelCompleteScene = ExtResource("2_cioyb")
 [node name="GameCamera" parent="." instance=ExtResource("3_0y7jq")]
 position = Vector2(-13, 16)
 position_smoothing_enabled = true
+metadata/_edit_lock_ = true
 
 [node name="Clouds" parent="GameCamera" instance=ExtResource("5_wj5d6")]
+metadata/_edit_lock_ = true
 
 [node name="Flag" parent="." instance=ExtResource("2_5kau8")]
 
@@ -47,12 +49,6 @@ tile_set = ExtResource("6_1buh1")
 cell_quadrant_size = 18
 format = 2
 metadata/_edit_lock_ = true
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Collectibles" type="Node2D" parent="."]
-
-[node name="Hazards" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_cvd2g")]
 unique_name_in_owner = true

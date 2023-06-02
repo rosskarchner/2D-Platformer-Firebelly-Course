@@ -8,8 +8,9 @@ var currentLevelIndex = 0
 func change_level(levelIndex):
 	currentLevelIndex = levelIndex
 	if currentLevelIndex >= levelScenes.size():
-		currentLevelIndex = 0
-	ScreenTransitionManager.transition_to_scene(levelScenes[currentLevelIndex])
+		ScreenTransitionManager.transition_to_end()
+	else:
+		ScreenTransitionManager.transition_to_scene(levelScenes[currentLevelIndex])
 
 func increment_level():
 	change_level(currentLevelIndex + 1)

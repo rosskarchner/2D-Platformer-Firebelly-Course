@@ -1,36 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://blsevbllo02dl"]
+[gd_scene load_steps=5 format=3 uid="uid://blsevbllo02dl"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_mjmnm"]
 [ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_nduth"]
+[ext_resource type="PackedScene" uid="uid://b774faelgb4b8" path="res://scenes/ui/menu_background.tscn" id="1_pnmu8"]
 [ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="2_b5br4"]
-[ext_resource type="PackedScene" uid="uid://ywbjuw7m3ynm" path="res://scenes/game_camera.tscn" id="2_cfnex"]
-[ext_resource type="PackedScene" uid="uid://dd4dp03p6y76u" path="res://scenes/clouds.tscn" id="3_pdotw"]
-[ext_resource type="TileSet" uid="uid://o1rg0ayolbbm" path="res://resources/decorative_tile_set.tres" id="4_ci47b"]
-[ext_resource type="TileSet" uid="uid://bqbnntxw5tpw5" path="res://resources/tile_set.tres" id="5_8uru8"]
 
 [node name="Main" type="Node"]
 
-[node name="GameCamera" parent="." instance=ExtResource("2_cfnex")]
-position = Vector2(-13, 16)
-position_smoothing_enabled = true
-metadata/_edit_lock_ = true
-
-[node name="Clouds" parent="GameCamera" instance=ExtResource("3_pdotw")]
-metadata/_edit_lock_ = true
-
-[node name="DecorativeTilemap" type="TileMap" parent="."]
-tile_set = ExtResource("4_ci47b")
-cell_quadrant_size = 18
-format = 2
-layer_0/tile_data = PackedInt32Array(131063, 1114113, 4, 196599, 1048577, 6, 262135, 1179649, 6, 65532, 1048577, 5, -4, 1114113, 4, 131068, 1179649, 6, 196604, 1048577, 4, 262140, 1114113, 6, 131069, 1245185, 6, 262136, 1245185, 6, 196598, 1179649, 5, 196610, 1114113, 6, 131074, 1114113, 4, 131077, 1048577, 5, 196613, 1114113, 6, 65541, 1114113, 4)
-metadata/_edit_lock_ = true
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("5_8uru8")
-cell_quadrant_size = 18
-format = 2
-layer_0/tile_data = PackedInt32Array(393223, 65537, 11, 327687, 65537, 10, 393222, 65537, 11, 327686, 65537, 10, 393221, 65537, 11, 327685, 65537, 10, 393220, 65537, 11, 327684, 65537, 10, 393219, 65537, 11, 327683, 65537, 10, 393218, 65537, 11, 327682, 65537, 10, 393217, 65537, 11, 327681, 65537, 10, 393216, 65537, 11, 327680, 65537, 10, 458751, 65537, 11, 393215, 65537, 10, 458750, 65537, 11, 393214, 65537, 10, 458749, 65537, 11, 393213, 65537, 10, 458748, 65537, 11, 393212, 65537, 10, 458747, 65537, 11, 393211, 65537, 10, 458746, 65537, 11, 393210, 65537, 10, 458745, 65537, 11, 393209, 65537, 10, 458744, 65537, 11, 393208, 65537, 10, 458743, 65537, 11, 393207, 65537, 10, 458742, 1, 11, 393206, 1, 10, -10, 1114113, 0, -9, 1179649, 0, -8, 1245185, 0, 65528, 1245185, 1, 65527, 1179649, 1, 65526, 1114113, 2, 131064, 1245185, 2, 131063, 1114113, 2, -3, 1245185, 2, -65539, 1245185, 0, -4, 1179649, 2, -65540, 1179649, 0, -5, 1179649, 2, -65541, 1179649, 0, -6, 1114113, 2, -65542, 1114113, 0, 131074, 1245185, 2, 65538, 1245185, 1, 2, 1245185, 1, -65534, 1245185, 1, -131070, 1245185, 0, 131073, 1114113, 2, 65537, 1114113, 1, 1, 1114113, 1, -65535, 1114113, 1, -131071, 1114113, 0, 65543, 1245185, 2, 65542, 1179649, 2, 6, 1179649, 0, 65541, 1179649, 2, 5, 1179649, 1, 65540, 1114113, 2, 4, 1114113, 1, 327670, 1, 9, 327671, 65537, 9, 327672, 65537, 9, 327673, 65537, 9, 327674, 65537, 9, 327675, 65537, 9, 327676, 65537, 9, 327677, 65537, 9, 327678, 65537, 9, 327679, 65537, 9, 262144, 65537, 9, 262145, 65537, 9, 262146, 65537, 9, 262148, 65537, 9, 262147, 65537, 9, 262149, 65537, 9, 262150, 65537, 9, 262151, 65537, 9, 262152, 131073, 9, 327688, 131073, 10, 393224, 131073, 11, -131077, 0, 131072, 7, 1245185, 0, -65532, 1114113, 0, -65531, 1245185, 0, 196609, 0, 131072, -65530, 0, 65536, -65529, 0, 65536)
-metadata/_edit_lock_ = true
+[node name="MenuBackground" parent="." instance=ExtResource("1_pnmu8")]
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 script = ExtResource("1_mjmnm")

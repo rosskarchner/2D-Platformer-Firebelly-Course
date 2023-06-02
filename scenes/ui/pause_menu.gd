@@ -23,5 +23,5 @@ func _on_options_button_pressed():
 
 
 func _on_quit_button_pressed():
-	$"/root/ScreenTransitionManager".transition_to_scene(mainMenuScene)
+	ScreenTransitionManager.transition_to_main()
 	unpause()

@@ -8,3 +8,14 @@ func transition_to_scene(scene):
 	add_child(screenTransition)
 	await screenTransition.screen_covered
 	get_tree().change_scene_to_packed(scene)
+
+func transition_to_main():
+	ScreenTransitionManager.transition_to_scene(
+					preload("res://scenes/ui/main_menu.tscn")
+				)
+
+func transition_to_end():
+	ScreenTransitionManager.transition_to_scene(
+					preload("res://scenes/ui/game_complete.tscn")
+				)
+

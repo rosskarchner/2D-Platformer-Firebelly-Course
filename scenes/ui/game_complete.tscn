@@ -1,11 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://ny5ldnm4bdl7"]
+[gd_scene load_steps=8 format=3 uid="uid://ny5ldnm4bdl7"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_complete.gd" id="1_1yowm"]
 [ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_vbh7o"]
 [ext_resource type="PackedScene" uid="uid://b774faelgb4b8" path="res://scenes/ui/menu_background.tscn" id="2_cllcp"]
 [ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="2_i6smr"]
 
+[sub_resource type="Animation" id="Animation_t0ebl"]
+resource_name = "default"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameComplete/MarginContainer:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ay6je"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameComplete/MarginContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ywjdx"]
+_data = {
+"RESET": SubResource("Animation_ay6je"),
+"default": SubResource("Animation_t0ebl")
+}
+
 [node name="Node" type="Node"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_ywjdx")
+}
 
 [node name="MenuBackground" parent="." instance=ExtResource("2_cllcp")]
 
@@ -18,6 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(64, 50)
 theme = ExtResource("1_vbh7o")
 
 [node name="PanelContainer" type="PanelContainer" parent="GameComplete/MarginContainer"]

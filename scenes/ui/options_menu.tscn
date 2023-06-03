@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://drk8qfa6u30cr"]
+[gd_scene load_steps=6 format=3 uid="uid://b5oxlfjdaykqt"]
 
-[ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_0yf0d"]
-[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_p4xxl"]
-[ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="2_gt535"]
+[ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_h7uah"]
+[ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="2_4imqc"]
 
 [sub_resource type="Animation" id="Animation_53ir0"]
 length = 0.001
@@ -29,10 +28,7 @@ _data = {
 "default": SubResource("Animation_2rmul")
 }
 
-[node name="PauseMenu" type="CanvasLayer"]
-unique_name_in_owner = true
-process_mode = 2
-script = ExtResource("1_p4xxl")
+[node name="OptionsMenu" type="CanvasLayer"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
@@ -47,9 +43,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(66, 50)
-theme = ExtResource("1_0yf0d")
+theme = ExtResource("1_h7uah")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -64,30 +59,23 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
-custom_minimum_size = Vector2(112, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "PAUSED"
+text = "OPTIONS"
 horizontal_alignment = 1
 
-[node name="ContinueButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_gt535")]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "CONTINUE"
 
-[node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_gt535")]
-unique_name_in_owner = true
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "OPTIONS"
+size_flags_horizontal = 3
+text = "Window Mode"
 
-[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_gt535")]
-unique_name_in_owner = true
+[node name="AnimatedButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_4imqc")]
 layout_mode = 2
-text = "QUIT TO MENU"
-
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+text = "Windowed"

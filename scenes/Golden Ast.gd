@@ -13,10 +13,10 @@ var directionLookup ={Direction.LEFT: Vector2.LEFT, Direction.RIGHT: Vector2.RIG
 @onready var direction = directionLookup[startDirection]
 
 func _ready():
-	$GoalDetector.connect("area_entered", self.on_goal_entered)
+	#$GoalDetector.connect("area_entered", self.on_goal_entered)
 	$HitBoxArea.connect("area_entered", self.on_hitbox_enter)
 
-func _process(delta):
+func _physics_process(delta):
 	if isSpawning:
 		return
 	if scale.x == direction.x:
@@ -27,11 +27,16 @@ func _process(delta):
 		velocity.y += gravity * delta
 		
 	move_and_slide()
-	if !$Visuals/CliffDetector.is_colliding():
-		change_direction()
-		
-	if $Visuals/WallDetector.is_colliding():
-		change_direction()
+	if is_on_floor():
+	
+		if !$Visuals/CliffDetector.is_colliding():
+			jump()
+			
+		if $Visuals/WallDetector.is_colliding() and !$"Visuals/Can Jump Detecter".is_colliding():
+			jump()
+			
+		elif $Visuals/WallDetector.is_colliding():
+			change_direction()
 
 
 func update_visual_direction():
@@ -46,11 +51,12 @@ func update_visual_direction():
 func change_direction():
 	direction *= -1
 	update_visual_direction()
+	velocity.y = -300
 
+func jump():
 
+	velocity.y = -300
 
-func on_goal_entered(_area2d):
-	change_direction()
 
 func on_hitbox_enter(_area2d):
 	$"/root/Helpers".apply_camera_shake(1.0)

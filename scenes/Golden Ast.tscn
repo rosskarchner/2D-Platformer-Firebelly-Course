@@ -1,0 +1,215 @@
+[gd_scene load_steps=13 format=3 uid="uid://qr3sk6t1o0cv"]
+
+[ext_resource type="Script" path="res://scenes/Golden Ast.gd" id="1_al8nb"]
+[ext_resource type="Texture2D" uid="uid://ccx3f31gf41w3" path="res://assets/enemy/character_0006.png" id="2_r4olt"]
+[ext_resource type="Texture2D" uid="uid://c7nx7rwvhsif7" path="res://assets/enemy/character_0007.png" id="3_l7il8"]
+[ext_resource type="Texture2D" uid="uid://dy7ddvhke4yut" path="res://assets/enemy/character_0017.png" id="4_11i6c"]
+
+[sub_resource type="Animation" id="Animation_yxx1p"]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBoxArea/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HazardArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:isSpawning")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_x3tpp"]
+resource_name = "spawn"
+length = 0.75
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"spawn"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HazardArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxArea/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_khq5n"]
+_data = {
+"default": SubResource("Animation_yxx1p"),
+"spawn": SubResource("Animation_x3tpp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byxxm"]
+size = Vector2(10, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16ubg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r4olt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l7il8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_11i6c")
+}],
+"loop": true,
+"name": &"spawn",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ampee"]
+size = Vector2(10, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygmp1"]
+size = Vector2(16.5, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1kdg8"]
+radius = 12.0
+
+[node name="Golden Astronout Enemy" type="CharacterBody2D"]
+position = Vector2(0, 5)
+collision_layer = 0
+script = ExtResource("1_al8nb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spawn"
+libraries = {
+"": SubResource("AnimationLibrary_khq5n")
+}
+next/default = &"default"
+next/spawn = &"default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_byxxm")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_16ubg")
+animation = &"run"
+autoplay = "spawn"
+offset = Vector2(0, -12)
+metadata/_edit_group_ = true
+
+[node name="CliffDetector" type="RayCast2D" parent="Visuals"]
+position = Vector2(-9, -2)
+target_position = Vector2(0, 5)
+
+[node name="WallDetector" type="RayCast2D" parent="Visuals"]
+position = Vector2(-5, -5)
+target_position = Vector2(-7, 2)
+
+[node name="Can Jump Detecter" type="RayCast2D" parent="Visuals"]
+position = Vector2(-9, -45)
+target_position = Vector2(-7, 2)
+
+[node name="GoalDetector" type="Area2D" parent="."]
+collision_layer = 131072
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalDetector"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_ampee")
+
+[node name="HazardArea" type="Area2D" parent="."]
+position = Vector2(0, -1)
+collision_layer = 65536
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0.25, -1)
+shape = SubResource("RectangleShape2D_ygmp1")
+
+[node name="HitBoxArea" type="Area2D" parent="."]
+position = Vector2(0, -6)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea"]
+shape = SubResource("CircleShape2D_1kdg8")

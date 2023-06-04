@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://cwel5nwf3ubfv"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_316c3"]
-[ext_resource type="Texture2D" uid="uid://bs7pw70jpflui" path="res://assets/player/character_0000.png" id="2_de7yi"]
-[ext_resource type="Texture2D" uid="uid://dra7guhw7fwln" path="res://assets/player/character_0001.png" id="3_xco10"]
+[ext_resource type="Texture2D" uid="uid://bywr7s1bs8y4b" path="res://assets/player/character_0000.png" id="2_de7yi"]
+[ext_resource type="Texture2D" uid="uid://dni4lkjehg1x0" path="res://assets/player/character_0001.png" id="3_xco10"]
 [ext_resource type="Shader" path="res://shaders/dash_trail.gdshader" id="4_xrpac"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6s7b"]
@@ -70,6 +70,7 @@ height = 36.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
+collision_mask = 9
 script = ExtResource("1_316c3")
 dashHazardMask = 262144
 

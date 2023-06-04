@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dd4dp03p6y76u"]
 
-[ext_resource type="Texture2D" uid="uid://c6idwl5s0jdsd" path="res://assets/effects/clouds.png" id="1_mirtm"]
+[ext_resource type="Texture2D" uid="uid://bos8keb4najd2" path="res://assets/effects/clouds.png" id="1_mirtm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r08xg"]
 particles_animation = true
@@ -23,6 +23,7 @@ point_count = 4
 curve = SubResource("Curve_8toui")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e23or"]
+resource_local_to_scene = true
 lifetime_randomness = 0.5
 emission_shape = 3
 emission_box_extents = Vector3(400, 200, 1)
@@ -31,11 +32,13 @@ spread = 0.0
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 15.0
+angular_velocity_min = -55.38
+angular_velocity_max = 55.38
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 angle_min = 180.0
 angle_max = 180.0
-scale_max = 2.0
+scale_max = 10.0
 scale_curve = SubResource("CurveTexture_2ixmf")
 color_ramp = SubResource("GradientTexture1D_0ws2q")
 anim_offset_max = 1.0

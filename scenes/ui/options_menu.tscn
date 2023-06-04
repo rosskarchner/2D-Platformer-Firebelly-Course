@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5oxlfjdaykqt"]
+[gd_scene load_steps=7 format=3 uid="uid://b5oxlfjdaykqt"]
 
 [ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_h7uah"]
+[ext_resource type="Script" path="res://scenes/ui/options_menu.gd" id="1_vrm5n"]
 [ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="2_4imqc"]
 
 [sub_resource type="Animation" id="Animation_53ir0"]
@@ -29,6 +30,7 @@ _data = {
 }
 
 [node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_vrm5n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
@@ -61,7 +63,7 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 12
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -76,6 +78,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Window Mode"
 
-[node name="AnimatedButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_4imqc")]
+[node name="WindowModeButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_4imqc")]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 6
 text = "Windowed"
+
+[node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_4imqc")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Back"

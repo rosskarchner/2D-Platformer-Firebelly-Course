@@ -19,3 +19,7 @@ func transition_to_end():
 					preload("res://scenes/ui/game_complete.tscn")
 				)
 
+func transition_to_options():
+	ScreenTransitionManager.transition_to_scene(
+					preload("res://scenes/ui/options_menu_standalone.tscn")
+				)

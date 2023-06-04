@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var mainMenuScene = preload("res://scenes/ui/main_menu.tscn")
 
+var optionsMenuScene = preload("res://scenes/ui/options_menu.tscn")
+
 func _ready():
 	get_tree().paused=true
 
@@ -18,7 +20,13 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 
 func _on_options_button_pressed():
-	pass # Replace with function body.
+	var optionsMenuInstance = optionsMenuScene.instantiate()
+	optionsMenuInstance.connect("back_pressed", func():
+		optionsMenuInstance.queue_free()
+		$MarginContainer.visible = true
+		)
+	$MarginContainer.visible = false
+	add_child(optionsMenuInstance)
 
 
 

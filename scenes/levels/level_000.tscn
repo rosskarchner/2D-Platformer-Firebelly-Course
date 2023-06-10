@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhup5q0gg2qx7"]
+[gd_scene load_steps=11 format=3 uid="uid://bhup5q0gg2qx7"]
 
 [ext_resource type="Script" path="res://scenes/base_level.gd" id="1_wexc4"]
 [ext_resource type="PackedScene" uid="uid://bh0h13hdym740" path="res://scenes/LevelComplete.tscn" id="2_kqux2"]
@@ -9,6 +9,7 @@
 [ext_resource type="TileSet" uid="uid://bqbnntxw5tpw5" path="res://resources/tile_set.tres" id="7_1upom"]
 [ext_resource type="TileSet" uid="uid://o1rg0ayolbbm" path="res://resources/decorative_tile_set.tres" id="8_nbxoe"]
 [ext_resource type="PackedScene" uid="uid://cwel5nwf3ubfv" path="res://scenes/player.tscn" id="9_vhfe6"]
+[ext_resource type="PackedScene" uid="uid://d4lahdd8lnate" path="res://scenes/tutorial_sign.tscn" id="10_a1abs"]
 
 [node name="BaseLevel" type="Node" groups=["base_level"]]
 script = ExtResource("1_wexc4")
@@ -56,3 +57,7 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("9_vhfe6")]
 unique_name_in_owner = true
 position = Vector2(45, -61)
+
+[node name="TutorialSign" parent="." instance=ExtResource("10_a1abs")]
+position = Vector2(165, -126)
+text = "You double jumped and dashed to get here-- so, good work I guess?"

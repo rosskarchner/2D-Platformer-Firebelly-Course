@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7m4dacmu1l3o"]
+[gd_scene load_steps=14 format=3 uid="uid://b7m4dacmu1l3o"]
 
-[ext_resource type="Texture2D" uid="uid://iut513n1qhrx" path="res://assets/flag/tile_0131.png" id="1_7t3eb"]
+[ext_resource type="Texture2D" uid="uid://ddtgt7f1jn6fo" path="res://assets/flag/tile_0131.png" id="1_7t3eb"]
 [ext_resource type="Script" path="res://scenes/flag.gd" id="1_qp763"]
-[ext_resource type="Texture2D" uid="uid://gw230kuck3f1" path="res://assets/flag/tile_0111.png" id="2_5dddo"]
-[ext_resource type="Texture2D" uid="uid://b1t7nxawk3gv8" path="res://assets/flag/tile_0112.png" id="3_1e068"]
+[ext_resource type="Texture2D" uid="uid://dgeff3wvwarl3" path="res://assets/flag/tile_0111.png" id="2_5dddo"]
+[ext_resource type="Texture2D" uid="uid://dy07f7uuh2c6i" path="res://assets/flag/tile_0112.png" id="3_1e068"]
+[ext_resource type="Texture2D" uid="uid://7h6fkogp75te" path="res://assets/effects/confetti.png" id="5_mqwpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dpj0"]
 size = Vector2(16, 36)
@@ -21,6 +22,49 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u0h4q"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_1s274"]
+max_value = 100.0
+_data = [Vector2(0, 98.556), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0hevf"]
+curve = SubResource("Curve_1s274")
+
+[sub_resource type="Curve" id="Curve_6inb4"]
+_data = [Vector2(0.00317797, 0.119134), 0.0, 0.0, 0, 0, Vector2(0.189619, 0.920578), 0.0, 0.0, 0, 0, Vector2(0.979873, 0.797834), 0.0, 0.0, 0, 0, Vector2(0.981992, 0.0252708), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_aby2u"]
+curve = SubResource("Curve_6inb4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h3yh4"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 30.0
+gravity = Vector3(0, 200, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 250.0
+angular_velocity_min = 180.0
+angular_velocity_max = 360.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_curve = SubResource("CurveTexture_0hevf")
+scale_min = 0.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_aby2u")
+color = Color(1, 0, 0, 1)
+hue_variation_max = 1.0
+anim_speed_min = 1.0
+anim_speed_max = 4.0
 
 [node name="Flag" type="Node2D"]
 script = ExtResource("1_qp763")
@@ -45,3 +89,13 @@ sprite_frames = SubResource("SpriteFrames_u21xx")
 autoplay = "default"
 centered = false
 offset = Vector2(0, -18)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_u0h4q")
+position = Vector2(3, -9)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_h3yh4")
+texture = ExtResource("5_mqwpl")
+one_shot = true
+explosiveness = 0.9

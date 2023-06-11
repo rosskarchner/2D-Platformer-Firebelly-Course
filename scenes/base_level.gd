@@ -46,10 +46,11 @@ func create_player():
 	register_player(playerInstance)
 
 func on_player_won():
+	currentPlayerNode.disable_player_input()
 	var levelComplete = levelCompleteScene.instantiate()
 	#levelComplete.get_node("%NextLevelButton").connect('pressed', $/root/LevelManager.increment_level)
 	add_child(levelComplete)
-	currentPlayerNode.queue_free()
+	
 	
 #func next_level()
 	#$"/root/LevelManager".increment_level()

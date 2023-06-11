@@ -14,3 +14,4 @@ func _process(delta):
 
 func on_area_entered(_area2d):
 	emit_signal("player_won")
+	$GPUParticles2D.emitting = true

@@ -7,7 +7,7 @@ var playerDeathScene = preload("res://scenes/player_death.tscn")
 var footstepParticles=preload("res://scenes/footstep_particles.tscn")
 var isDying = false
 
-enum State {NORMAL, DASHING}
+enum State {NORMAL, DASHING, INPUT_DISABLED}
 
 const SPEED = 100
 const MAX_HORIZONTAL_SPEED = 150
@@ -41,6 +41,8 @@ func _physics_process(delta):
 			physics_process_normal(delta)
 		State.DASHING:
 			physics_process_dashing(delta)
+		State.INPUT_DISABLED:
+			physics_process_input_disabled(delta)
 	isStateNew = false
 
 
@@ -123,6 +125,12 @@ func physics_process_dashing(delta):
 		
 	update_animation(last_direction)
 		
+func physics_process_input_disabled(delta):
+	if isStateNew:
+		$AnimatedSprite2D.play("idle")
+	velocity.x = lerpf(0, velocity.x, pow(2.0,-8.0 * delta))
+	velocity.y += gravity * delta
+	move_and_slide()
 
 func update_animation(direction):
 	if not is_on_floor() or currentState == State.DASHING: 
@@ -161,3 +169,6 @@ func spawn_footprints(scale=1.0):
 	footsteps.global_position = global_position
 	footsteps.scale = Vector2.ONE * scale
 	add_sibling(footsteps)
+
+func disable_player_input():
+	change_state(State.INPUT_DISABLED)

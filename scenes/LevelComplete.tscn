@@ -1,43 +1,104 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh0h13hdym740"]
+[gd_scene load_steps=8 format=3 uid="uid://bh0h13hdym740"]
 
 [ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_bvlke"]
 [ext_resource type="Script" path="res://scenes/LevelComplete.gd" id="1_yelfr"]
+[ext_resource type="PackedScene" uid="uid://b3mc0akfdmslk" path="res://scenes/ui/coin_counter.tscn" id="3_a1swv"]
+[ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="4_48ph5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8de6"]
+[sub_resource type="Animation" id="Animation_53ir0"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_2rmul"]
+resource_name = "default"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1.2, 1.2), Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81hr2"]
+_data = {
+"RESET": SubResource("Animation_53ir0"),
+"default": SubResource("Animation_2rmul")
+}
 
 [node name="LevelComplete" type="CanvasLayer"]
 script = ExtResource("1_yelfr")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.5
-offset_top = -32.5
-offset_right = 40.5
-offset_bottom = 32.5
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_81hr2")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(160, 90)
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_bvlke")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Level Complete!"
 
-[node name="NextLevelButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Coins Collected:"
+
+[node name="CoinCounter" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_a1swv")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_48ph5")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_b8de6")
+text = "Restart"
+
+[node name="NextLevelButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_48ph5")]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Next Level"
+
+[node name="MainMenuButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_48ph5")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Main Menu"

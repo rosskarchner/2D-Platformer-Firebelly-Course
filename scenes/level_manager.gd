@@ -15,6 +15,8 @@ func change_level(levelIndex =0):
 func increment_level():
 	change_level(currentLevelIndex + 1)
 
+func restart_level():
+	change_level(currentLevelIndex)
 	
 func _process(delta):
 	if Input.is_action_just_pressed("skip_level"):

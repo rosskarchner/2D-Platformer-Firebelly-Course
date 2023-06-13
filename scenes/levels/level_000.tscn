@@ -27,7 +27,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Flag" parent="." instance=ExtResource("6_bg874")]
-position = Vector2(937, 300)
+position = Vector2(937, 307)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("7_1upom")

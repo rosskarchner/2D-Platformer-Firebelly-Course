@@ -128,7 +128,7 @@ func physics_process_dashing(delta):
 func physics_process_input_disabled(delta):
 	if isStateNew:
 		$AnimatedSprite2D.play("idle")
-	velocity.x = lerpf(0, velocity.x, pow(2.0,-8.0 * delta))
+	velocity.x =  lerpf(0, velocity.x, pow(2.0,-16.0 * delta))
 	velocity.y += gravity * delta
 	move_and_slide()
 

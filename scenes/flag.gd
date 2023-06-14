@@ -19,4 +19,5 @@ func on_area_entered(_area2d):
 func activate():
 	$Area2D.monitoring = true
 	$AnimatedSprite2D.set_material(null)
+	$Sprite2D.set_material(null)
 	

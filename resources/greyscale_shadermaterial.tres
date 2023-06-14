@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://vufodf0jnqqk"]
+
+[ext_resource type="Shader" path="res://scenes/flag.gdshader" id="1_iuil6"]
+
+[resource]
+shader = ExtResource("1_iuil6")

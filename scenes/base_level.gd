@@ -30,6 +30,8 @@ func update_coin_total():
 func coin_collected():
 	collectedCoins += 1
 	emit_signal("coin_total_changed", totalCoins, collectedCoins)
+	if collectedCoins == totalCoins:
+		$Flag.activate()
 	
 func coin_total_change(newTotal):
 	totalCoins = newTotal

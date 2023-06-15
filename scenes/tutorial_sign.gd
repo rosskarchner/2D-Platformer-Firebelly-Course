@@ -9,7 +9,6 @@ func _ready():
 	$Area2D.connect("area_entered", func(_collider):
 		$PanelContainer.visible = true
 		$Sprite2D.frame = 1
-		print_debug("entered@")
 	)
 	$Area2D.connect("area_exited", func(_collider):
 		$PanelContainer.visible = false

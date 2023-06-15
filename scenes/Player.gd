@@ -11,7 +11,7 @@ enum State {NORMAL, DASHING, INPUT_DISABLED}
 
 const SPEED = 100
 const MAX_HORIZONTAL_SPEED = 150
-const JUMP_VELOCITY = -320.0
+const JUMP_VELOCITY = -300.0
 const ACCELERATION_PER_SEC = 150
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -164,10 +164,10 @@ func on_animated_sprite_frame_changed():
 	if $AnimatedSprite2D.animation == "run"  and $AnimatedSprite2D.frame == 0:
 		spawn_footprints()
 		
-func spawn_footprints(scale=1.0):
+func spawn_footprints(scalefx=1.0):
 	var footsteps = footstepParticles.instantiate()
 	footsteps.global_position = global_position
-	footsteps.scale = Vector2.ONE * scale
+	footsteps.scale = Vector2.ONE * scalefx
 	add_sibling(footsteps)
 
 func disable_player_input():

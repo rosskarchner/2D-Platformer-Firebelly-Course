@@ -51,6 +51,13 @@ texture={
 "roughness/mode": 0,
 "roughness/src_normal": ""
 }
+oggvorbisstr={
+"bar_beats": 4,
+"beat_count": 0,
+"bpm": 0,
+"loop": false,
+"loop_offset": 0
+}
 
 [input]
 

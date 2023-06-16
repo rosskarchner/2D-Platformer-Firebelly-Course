@@ -169,6 +169,7 @@ func spawn_footprints(scalefx=1.0):
 	footsteps.global_position = global_position
 	footsteps.scale = Vector2.ONE * scalefx
 	add_sibling(footsteps)
+	$FootstepAudioPlayer.play()
 
 func disable_player_input():
 	change_state(State.INPUT_DISABLED)

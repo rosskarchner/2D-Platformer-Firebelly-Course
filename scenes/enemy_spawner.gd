@@ -13,7 +13,6 @@ var playerNearby = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Visuals.queue_free()
 	$SpawnTimer.connect("timeout", self.on_spawn_timer_timeout)
 	call_deferred("spawn_enemy")
 
@@ -35,3 +34,7 @@ func check_enemy_spawn():
 
 func on_spawn_timer_timeout():
 		check_enemy_spawn()
+
+
+func _on_blue_enemy_spawner_tile_ready():
+	pass # Replace with function body.

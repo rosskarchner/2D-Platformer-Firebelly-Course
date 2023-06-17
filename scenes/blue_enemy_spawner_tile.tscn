@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bph6y3ks2ocfd"]
+
+[ext_resource type="PackedScene" uid="uid://b4byvamym6doq" path="res://scenes/enemy_spawner.tscn" id="1_qrrvt"]
+[ext_resource type="Script" path="res://scenes/blue_enemy_spawner_tile.gd" id="1_yqf5g"]
+[ext_resource type="PackedScene" uid="uid://bmxr6lstii24f" path="res://scenes/blue_enemy.tscn" id="2_x3vhv"]
+[ext_resource type="Texture2D" uid="uid://ts3xj1ylu4rf" path="res://assets/enemy/character_0020.png" id="3_tc2my"]
+
+[node name="BlueEnemySpawnerTile" type="Node2D"]
+script = ExtResource("1_yqf5g")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("1_qrrvt")]
+enemyScene = ExtResource("2_x3vhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_tc2my")
+
+[connection signal="ready" from="." to="EnemySpawner" method="_on_blue_enemy_spawner_tile_ready"]

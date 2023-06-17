@@ -55,7 +55,7 @@ func change_direction():
 
 func jump():
 
-	velocity.y = -300
+	velocity.y = -400
 
 
 func on_hitbox_enter(_area2d):

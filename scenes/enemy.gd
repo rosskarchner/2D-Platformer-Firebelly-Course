@@ -53,6 +53,8 @@ func on_goal_entered(_area2d):
 	change_direction()
 
 func on_hitbox_enter(_area2d):
+	var scoreKeeper = $"/root/ScoreKeeper"
+	scoreKeeper.add_points(5)
 	$"/root/Helpers".apply_camera_shake(1.0)
 	var myDeathScene = enemyDeathScene.instantiate()
 	myDeathScene.global_position = global_position

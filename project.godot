@@ -21,6 +21,7 @@ LevelManager="*res://scenes/level_manager.tscn"
 Helpers="*res://scripts/helpers.gd"
 ScreenTransitionManager="*res://scenes/screen_transition_manager.tscn"
 MouseCursor="*res://scenes/ui/mouse_cursor.tscn"
+ScoreKeeper="*res://scenes/score_keeper.tscn"
 
 [display]
 

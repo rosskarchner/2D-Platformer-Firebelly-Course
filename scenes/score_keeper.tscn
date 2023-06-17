@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b71pupwpx4lq6"]
+
+[ext_resource type="Script" path="res://scenes/score_keeper.gd" id="1_s7wi8"]
+
+[node name="ScoreKeeper" type="Node"]
+script = ExtResource("1_s7wi8")

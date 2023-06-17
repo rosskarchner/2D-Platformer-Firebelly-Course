@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b14bt3d86de23"]
 
 [ext_resource type="PackedScene" uid="uid://d4ls4aj72dgw7" path="res://scenes/base_level.tscn" id="1_8d7ks"]
-[ext_resource type="PackedScene" uid="uid://qr3sk6t1o0cv" path="res://scenes/Golden Ast.tscn" id="2_sy5my"]
+[ext_resource type="PackedScene" uid="uid://bmxr6lstii24f" path="res://scenes/blue_enemy.tscn" id="2_xpytu"]
 
 [node name="EnemyGym" instance=ExtResource("1_8d7ks")]
 
@@ -15,7 +15,7 @@ layer_0/tile_data = PackedInt32Array(327675, 1, 10, 65536, 1, 10, 131072, 1, 11,
 layer_0/tile_data = PackedInt32Array(196599, 786433, 3, 131063, 786433, 2, 65527, 786433, 1, -9, 786433, 0)
 
 [node name="Player" parent="." index="7"]
-position = Vector2(94, 34)
+position = Vector2(-165, 56)
 
-[node name="Golden Astronout Enemy" parent="." index="8" instance=ExtResource("2_sy5my")]
-position = Vector2(16, -6)
+[node name="Enemy" parent="." index="8" instance=ExtResource("2_xpytu")]
+position = Vector2(-169, -21)

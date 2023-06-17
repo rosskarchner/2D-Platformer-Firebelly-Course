@@ -9,6 +9,7 @@ enum Direction{RIGHT, LEFT}
 
 var currentEnemyNode 
 var spawnOnNextTick = false
+var playerNearby = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,9 +18,7 @@ func _ready():
 	call_deferred("spawn_enemy")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+
 
 func spawn_enemy():
 	currentEnemyNode =enemyScene.instantiate()
@@ -31,8 +30,8 @@ func check_enemy_spawn():
 	if not is_instance_valid(currentEnemyNode):
 		if spawnOnNextTick:
 			spawn_enemy()
-		else:
+		elif not playerNearby:
 			spawnOnNextTick = true
 
 func on_spawn_timer_timeout():
-	check_enemy_spawn()
+		check_enemy_spawn()

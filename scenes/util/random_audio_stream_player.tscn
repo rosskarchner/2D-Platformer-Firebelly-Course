@@ -4,9 +4,3 @@
 
 [node name="RandomAudioStreamPlayer" type="Node"]
 script = ExtResource("1_k0tbh")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]

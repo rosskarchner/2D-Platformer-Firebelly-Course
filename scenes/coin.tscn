@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dguohmgfd7bvg"]
 
 [ext_resource type="Script" path="res://scenes/coin.gd" id="1_30v4n"]
-[ext_resource type="Texture2D" uid="uid://dwgayypv3omgt" path="res://assets/coin/tile_0151.png" id="1_rkfol"]
-[ext_resource type="Texture2D" uid="uid://cna0th7a7r1i" path="res://assets/coin/tile_0152.png" id="2_o6o3j"]
+[ext_resource type="Texture2D" uid="uid://fv3jww6jom10" path="res://assets/coin/tile_0151.png" id="1_rkfol"]
+[ext_resource type="Texture2D" uid="uid://6t5jrb44nig8" path="res://assets/coin/tile_0152.png" id="2_o6o3j"]
 
 [sub_resource type="Animation" id="Animation_4pt6y"]
 resource_name = "idle"

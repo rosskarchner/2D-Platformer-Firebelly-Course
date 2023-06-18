@@ -23,13 +23,15 @@ func spawn_enemy():
 	currentEnemyNode =enemyScene.instantiate()
 	currentEnemyNode.startDirection = startDirection
 	currentEnemyNode.global_position = global_position
-	get_parent().add_child(currentEnemyNode)
+	var gp = global_position
+	var egp = currentEnemyNode.global_position
+	get_parent().add_sibling(currentEnemyNode)
 
 func check_enemy_spawn():
 	if not is_instance_valid(currentEnemyNode):
 		if spawnOnNextTick:
 			spawn_enemy()
-		elif not playerNearby:
+		else:
 			spawnOnNextTick = true
 
 func on_spawn_timer_timeout():

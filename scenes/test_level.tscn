@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0qmx55w0uvcb"]
+[gd_scene load_steps=3 format=3 uid="uid://b0qmx55w0uvcb"]
 
 [ext_resource type="PackedScene" uid="uid://d4ls4aj72dgw7" path="res://scenes/base_level.tscn" id="1_84cgs"]
+[ext_resource type="PackedScene" uid="uid://d4lahdd8lnate" path="res://scenes/tutorial_sign.tscn" id="2_8dpo0"]
 
 [node name="TestLevel" instance=ExtResource("1_84cgs")]
 
@@ -9,3 +10,7 @@ position = Vector2(103, 2)
 
 [node name="TileMap" parent="." index="3"]
 layer_0/tile_data = PackedInt32Array(65534, 1, 9, 65535, 65537, 9, 0, 65537, 9, 1, 65537, 9, 65537, 65537, 11, 65536, 65537, 11, 131071, 65537, 11, 131070, 1, 11, 2, 65537, 9, 3, 65537, 9, 4, 65537, 9, 5, 65537, 9, 6, 131073, 9, 65542, 131073, 11, 65541, 65537, 11, 65540, 65537, 11, 65539, 65537, 11, 65538, 65537, 11, -196606, 2, 65536)
+
+[node name="TutorialSign" parent="." index="8" instance=ExtResource("2_8dpo0")]
+position = Vector2(42, -3)
+text = "Hellow and welcome!!!!!!!!!!!!!!!!!!!!!!!!!!"

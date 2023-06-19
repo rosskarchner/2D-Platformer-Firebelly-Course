@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 
 func _ready():		
+	$DeathSoundPlayer1.play()
+	$DeathSoundPlayer2.play()
+	$DeathSoundPlayer3.play()
 	if velocity.x > 0:
 		$Visuals.scale = Vector2(-1,1)
 	

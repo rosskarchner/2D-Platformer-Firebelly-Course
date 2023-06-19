@@ -96,47 +96,58 @@ maxPitchScale = 1.5
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("3_nef7e")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("4_7afph")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("5_ao48y")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("6_j2yfi")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("7_jbxft")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("8_lv51y")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("4_7afph")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("9_blmtv")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("10_uhn1x")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer13" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("11_treix")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="AudioStreamPlayer14" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("12_3v4os")
-bus = &"SFX"
+volume_db = -2.0
+bus = &"Footsteps"
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
 show_behind_parent = true

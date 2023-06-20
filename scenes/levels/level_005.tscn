@@ -60,4 +60,8 @@ layer_0/tile_data = PackedInt32Array(262172, 720897, 6, 196636, 720897, 6, 13110
 [node name="Player" parent="." index="7"]
 position = Vector2(-268, 18)
 
+[node name="TutorialSign" parent="." index="8"]
+position = Vector2(-68, 21)
+text = "wOW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
+
 [editable path="GameCamera/Clouds"]

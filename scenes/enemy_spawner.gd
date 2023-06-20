@@ -14,7 +14,6 @@ var playerNearby = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$SpawnTimer.connect("timeout", self.on_spawn_timer_timeout)
-	call_deferred("spawn_enemy")
 
 
 

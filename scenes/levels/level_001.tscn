@@ -21,3 +21,6 @@ layer_0/tile_data = PackedInt32Array(1114120, 983041, 0, 917510, 1048577, 0)
 
 [node name="Player" parent="." index="7"]
 position = Vector2(-84, -196)
+
+[node name="TutorialSign" parent="." index="8"]
+position = Vector2(2368, 3218)

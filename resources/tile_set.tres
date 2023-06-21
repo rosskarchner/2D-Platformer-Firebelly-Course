@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://bqbnntxw5tpw5"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://bqbnntxw5tpw5"]
 
 [ext_resource type="Texture2D" uid="uid://d05pi7sx4578w" path="res://assets/tiles/tiles_packed.png" id="1_3pj6q"]
 [ext_resource type="PackedScene" uid="uid://cwfq5ueltaism" path="res://scenes/spikes.tscn" id="1_hd6ox"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dguohmgfd7bvg" path="res://scenes/coin.tscn" id="3_e2tbk"]
 [ext_resource type="PackedScene" uid="uid://bph6y3ks2ocfd" path="res://scenes/blue_enemy_spawner_tile.tscn" id="3_uap31"]
 [ext_resource type="PackedScene" uid="uid://dpntkthafkvxx" path="res://scenes/bat_spawner_tile.tscn" id="4_fyqps"]
+[ext_resource type="PackedScene" uid="uid://p2quxlmfsrpv" path="res://scenes/heart.tscn" id="7_vse5y"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_yofco"]
 resource_name = "Hazards"
@@ -1221,6 +1222,7 @@ texture_region_size = Vector2i(18, 18)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rx3c8"]
 resource_name = "Collectibles"
 scenes/1/scene = ExtResource("3_e2tbk")
+scenes/2/scene = ExtResource("7_vse5y")
 
 [resource]
 tile_size = Vector2i(18, 18)

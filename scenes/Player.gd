@@ -147,6 +147,7 @@ func kill():
 	if isDying:
 		return
 	isDying = true
+	ScoreKeeper.lose_life()
 	var playerDeathInstance = playerDeathScene.instantiate()
 	playerDeathInstance.global_position = global_position
 	playerDeathInstance.velocity = velocity

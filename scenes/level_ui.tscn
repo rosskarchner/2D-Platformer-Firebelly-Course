@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwjt2oxum8tk2"]
+[gd_scene load_steps=5 format=3 uid="uid://dwjt2oxum8tk2"]
 
 [ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_ea8pg"]
 [ext_resource type="Script" path="res://scenes/level_ui.gd" id="1_j8hmh"]
 [ext_resource type="PackedScene" uid="uid://b3mc0akfdmslk" path="res://scenes/ui/coin_counter.tscn" id="2_4uxsx"]
+[ext_resource type="Texture2D" uid="uid://bjr150fuba0d8" path="res://assets/heart/tile_0044.png" id="4_rxw8v"]
 
 [node name="LevelUI" type="CanvasLayer"]
 script = ExtResource("1_j8hmh")
@@ -26,3 +27,15 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "10,000"
+
+[node name="LivesLeftCounter" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/LivesLeftCounter"]
+layout_mode = 2
+texture = ExtResource("4_rxw8v")
+
+[node name="LivesLeftLabel" type="Label" parent="MarginContainer/VBoxContainer/LivesLeftCounter"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "30"

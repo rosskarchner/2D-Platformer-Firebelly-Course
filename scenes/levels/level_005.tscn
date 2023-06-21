@@ -64,8 +64,4 @@ position = Vector2(1652, -29)
 position = Vector2(-68, 21)
 text = "wOW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
 
-[connection signal="ready" from="TileMap/BlueEnemySpawnerTile" to="TileMap/BlueEnemySpawnerTile/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@BlueEnemySpawnerTile@182296" to="TileMap/@BlueEnemySpawnerTile@182296/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@BlueEnemySpawnerTile@182486" to="TileMap/@BlueEnemySpawnerTile@182486/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-
 [editable path="GameCamera/Clouds"]

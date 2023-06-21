@@ -2,12 +2,27 @@
 
 [ext_resource type="Script" path="res://scenes/ui/screen_transition.gd" id="1_78nyi"]
 [ext_resource type="Shader" path="res://scenes/ui/screen_transition.gdshader" id="1_srnol"]
-[ext_resource type="Texture2D" uid="uid://dribbitcxr1i4" path="res://assets/effects/screen-wipe.png" id="3_hoptt"]
+[ext_resource type="Texture2D" uid="uid://1dpl7qs10ojk" path="res://assets/effects/screen-wipe.png" id="3_hoptt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kk0dr"]
 shader = ExtResource("1_srnol")
 shader_parameter/percent = 0.0
 shader_parameter/wipeImage = ExtResource("3_hoptt")
+
+[sub_resource type="Animation" id="Animation_eixvb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/percent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_wpxao"]
 resource_name = "default"
@@ -41,21 +56,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"queue_free"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_eixvb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/percent")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p3r1r"]

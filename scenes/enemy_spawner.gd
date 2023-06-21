@@ -14,7 +14,8 @@ var playerNearby = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$SpawnTimer.connect("timeout", self.on_spawn_timer_timeout)
-
+	if not get_parent().has_node("VisibleOnScreenEnabler2D"):
+		spawn_enemy()
 
 
 
@@ -24,7 +25,7 @@ func spawn_enemy():
 	currentEnemyNode.global_position = global_position
 	var gp = global_position
 	var egp = currentEnemyNode.global_position
-	get_parent().add_sibling(currentEnemyNode)
+	get_parent().add_sibling.call_deferred(currentEnemyNode)
 
 func check_enemy_spawn():
 	if not is_instance_valid(currentEnemyNode):

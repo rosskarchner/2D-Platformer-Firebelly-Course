@@ -1,11 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7m4dacmu1l3o"]
+[gd_scene load_steps=22 format=3 uid="uid://b7m4dacmu1l3o"]
 
 [ext_resource type="Texture2D" uid="uid://ddtgt7f1jn6fo" path="res://assets/flag/tile_0131.png" id="1_7t3eb"]
 [ext_resource type="Script" path="res://scenes/flag.gd" id="1_qp763"]
 [ext_resource type="Texture2D" uid="uid://dgeff3wvwarl3" path="res://assets/flag/tile_0111.png" id="2_5dddo"]
+[ext_resource type="AudioStream" uid="uid://bjh1uv2s07e17" path="res://assets/sounds/jingles_PIZZI10.ogg" id="2_6c82v"]
 [ext_resource type="Material" uid="uid://vufodf0jnqqk" path="res://resources/greyscale_shadermaterial.tres" id="2_amvbx"]
 [ext_resource type="Texture2D" uid="uid://dy07f7uuh2c6i" path="res://assets/flag/tile_0112.png" id="3_1e068"]
+[ext_resource type="PackedScene" uid="uid://dnqbns67tb2xc" path="res://scenes/util/random_audio_stream_player.tscn" id="3_hdgru"]
+[ext_resource type="AudioStream" uid="uid://yrl2uvwfxgr6" path="res://assets/sounds/impactPlank_medium_000.ogg" id="4_8bux6"]
+[ext_resource type="AudioStream" uid="uid://fpo8kp02il5k" path="res://assets/sounds/impactPlank_medium_001.ogg" id="5_f2tbj"]
 [ext_resource type="Texture2D" uid="uid://7h6fkogp75te" path="res://assets/effects/confetti.png" id="5_mqwpl"]
+[ext_resource type="AudioStream" uid="uid://bh2ioykd44pwd" path="res://assets/sounds/impactPlank_medium_002.ogg" id="6_u24hk"]
+[ext_resource type="AudioStream" uid="uid://dojx7tdc0tkt5" path="res://assets/sounds/impactPlank_medium_003.ogg" id="7_pc2qm"]
+[ext_resource type="AudioStream" uid="uid://c23c424kuo4ns" path="res://assets/sounds/impactPlank_medium_004.ogg" id="8_y4kqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dpj0"]
 size = Vector2(16, 36)
@@ -69,6 +76,32 @@ anim_speed_max = 4.0
 
 [node name="Flag" type="Node2D"]
 script = ExtResource("1_qp763")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6c82v")
+
+[node name="RandomAudioStreamPlayer" parent="." instance=ExtResource("3_hdgru")]
+numberToPlay = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RandomAudioStreamPlayer"]
+stream = ExtResource("4_8bux6")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="RandomAudioStreamPlayer"]
+stream = ExtResource("5_f2tbj")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="RandomAudioStreamPlayer"]
+stream = ExtResource("6_u24hk")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="RandomAudioStreamPlayer"]
+stream = ExtResource("7_pc2qm")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="RandomAudioStreamPlayer"]
+stream = ExtResource("8_y4kqr")
+bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(10, -26)

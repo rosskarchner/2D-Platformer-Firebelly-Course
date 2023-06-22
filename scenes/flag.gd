@@ -14,7 +14,9 @@ func _process(delta):
 
 func on_area_entered(_area2d):
 	emit_signal("player_won")
+	$AudioStreamPlayer.play()
 	$GPUParticles2D.emitting = true
+	$RandomAudioStreamPlayer.play()
 	
 func activate():
 	$Area2D.monitoring = true

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://biodnespd42bm"]
+
+[ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_m4pmy"]
+[ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="1_tw53n"]
+[ext_resource type="Script" path="res://scenes/util/range_control.gd" id="2_kf2k0"]
+
+[node name="RangeControl" type="HBoxContainer"]
+size_flags_horizontal = 8
+theme = ExtResource("1_m4pmy")
+script = ExtResource("2_kf2k0")
+
+[node name="SubtractButton" parent="." instance=ExtResource("1_tw53n")]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+text = "-"
+disabledHoverAnim = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "10"
+
+[node name="AddButton" parent="." instance=ExtResource("1_tw53n")]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+text = "+"
+disabledHoverAnim = true

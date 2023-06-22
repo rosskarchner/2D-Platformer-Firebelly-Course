@@ -15,7 +15,6 @@ var collectedCoins = 0
 func _ready():
 	spawnPosition = %Player.global_position
 	register_player(%Player)
-	
 	update_coin_total()
 	$Flag.connect("player_won", self.on_player_won)
 

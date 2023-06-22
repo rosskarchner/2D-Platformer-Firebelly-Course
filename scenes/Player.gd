@@ -110,6 +110,7 @@ func physics_process_normal(delta):
 
 func physics_process_dashing(delta):
 	if isStateNew:
+		$DashAudioPlayer.play()
 		$DashParticles.emitting = true
 		$"/root/Helpers".apply_camera_shake(0.75)
 		velocity = Vector2(maxDashSpeed * last_direction , 0.0) 

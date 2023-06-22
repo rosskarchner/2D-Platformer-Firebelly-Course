@@ -7,6 +7,8 @@ func _ready():
 	
 func on_area_entered(_area2d):
 	$AnimationPlayer.play("pickup")
+	$RandomAudioStreamPlayer.play()
+	$RandomAudioStreamPlayer2.play()
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	ScoreKeeper.add_points(1)
 	

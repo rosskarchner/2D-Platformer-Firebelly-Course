@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5oxlfjdaykqt"]
+[gd_scene load_steps=8 format=3 uid="uid://b5oxlfjdaykqt"]
 
 [ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_h7uah"]
 [ext_resource type="Script" path="res://scenes/ui/options_menu.gd" id="1_vrm5n"]
 [ext_resource type="PackedScene" uid="uid://bmircs0hpgmye" path="res://scenes/ui/animated_button.tscn" id="2_4imqc"]
+[ext_resource type="PackedScene" uid="uid://biodnespd42bm" path="res://scenes/util/range_control.tscn" id="4_6dntu"]
 
 [sub_resource type="Animation" id="Animation_53ir0"]
 length = 0.001
@@ -83,6 +84,30 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Windowed"
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume"
+
+[node name="RangeControl" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer" instance=ExtResource("4_6dntu")]
+layout_mode = 2
+
+[node name="SFXVolumeContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SFXVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX Volume"
+
+[node name="RangeControl" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SFXVolumeContainer" instance=ExtResource("4_6dntu")]
+layout_mode = 2
 
 [node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_4imqc")]
 unique_name_in_owner = true

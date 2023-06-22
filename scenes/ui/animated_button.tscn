@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmircs0hpgmye"]
+[gd_scene load_steps=7 format=3 uid="uid://bmircs0hpgmye"]
 
 [ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_fuaeh"]
 [ext_resource type="Script" path="res://scenes/ui/animated_button.gd" id="2_00e0h"]
+[ext_resource type="AudioStream" uid="uid://hhltm7ooldvi" path="res://assets/sounds/click_002.ogg" id="3_xhmww"]
 
 [sub_resource type="Animation" id="Animation_fcsi1"]
 resource_name = "click"
@@ -64,6 +65,10 @@ focus_mode = 0
 theme = ExtResource("1_fuaeh")
 text = "TEST TEXT"
 script = ExtResource("2_00e0h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xhmww")
+bus = &"SFX"
 
 [node name="HoverAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

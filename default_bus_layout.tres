@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://bly8hvit1cqnm"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://bly8hvit1cqnm"]
 
 [sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_n5r4n"]
 resource_name = "HighPassFilter"
@@ -12,6 +12,18 @@ resource_name = "Chorus"
 dry = 0.4
 wet = 1.0
 voice/1/delay_ms = 50.0
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_1hu06"]
+resource_name = "PitchShift"
+pitch_scale = 1.2
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_b3h0u"]
+resource_name = "Phaser"
+rate_hz = 20.0
+feedback = 0.6
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cnwhs"]
+resource_name = "Reverb"
 
 [resource]
 bus/1/name = &"SFX"
@@ -44,3 +56,15 @@ bus/4/effect/0/effect = SubResource("AudioEffectLowPassFilter_aplqe")
 bus/4/effect/0/enabled = true
 bus/4/effect/1/effect = SubResource("AudioEffectChorus_pqq2b")
 bus/4/effect/1/enabled = true
+bus/5/name = &"PlayerDash"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"SFX"
+bus/5/effect/0/effect = SubResource("AudioEffectPitchShift_1hu06")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectPhaser_b3h0u")
+bus/5/effect/1/enabled = true
+bus/5/effect/2/effect = SubResource("AudioEffectReverb_cnwhs")
+bus/5/effect/2/enabled = true

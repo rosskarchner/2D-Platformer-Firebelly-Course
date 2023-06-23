@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://du0x672lab5pf"]
+[gd_scene load_steps=3 format=3 uid="uid://du0x672lab5pf"]
 
 [ext_resource type="AudioStream" uid="uid://5kucriuhwhpl" path="res://assets/music/Juhani Junkala [Chiptune Adventures] 2. Stage 2.ogg" id="1_03qox"]
+[ext_resource type="Script" path="res://scenes/music_player.gd" id="1_ox38f"]
 
 [node name="MusicPlayer" type="Node"]
 process_mode = 3
+script = ExtResource("1_ox38f")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_03qox")

@@ -5,7 +5,7 @@ signal lives_updated
 
 
 var Score = 0
-var LivesLeft= 3
+var LivesLeft= 30
 
 
 func add_points(new_points):

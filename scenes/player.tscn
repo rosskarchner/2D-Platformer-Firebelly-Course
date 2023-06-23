@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwel5nwf3ubfv"]
+[gd_scene load_steps=27 format=3 uid="uid://cwel5nwf3ubfv"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_316c3"]
 [ext_resource type="Texture2D" uid="uid://bywr7s1bs8y4b" path="res://assets/player/character_0000.png" id="2_de7yi"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://04omjlaqocmx" path="res://assets/sounds/footstep_concrete_002.ogg" id="10_uhn1x"]
 [ext_resource type="AudioStream" uid="uid://dmjw3un7uydqd" path="res://assets/sounds/footstep_concrete_003.ogg" id="11_treix"]
 [ext_resource type="AudioStream" uid="uid://dmqeonnv2jw1d" path="res://assets/sounds/footstep_concrete_004.ogg" id="12_3v4os"]
+[ext_resource type="Texture2D" uid="uid://cybaumyjyx4c0" path="res://assets/player/with_jetpack/character_0001.png" id="16_btfsa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h6s7b"]
 shader = ExtResource("4_xrpac")
@@ -45,6 +46,14 @@ size = Vector2(8, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j8m4c"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_btfsa")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_de7yi")
@@ -191,8 +200,8 @@ shape = SubResource("RectangleShape2D_7fv47")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_j8m4c")
-animation = &"run"
-frame_progress = 0.63147
+animation = &"fly"
+autoplay = "idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

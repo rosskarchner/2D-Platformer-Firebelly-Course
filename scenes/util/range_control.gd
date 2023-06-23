@@ -14,4 +14,4 @@ func change_by_percent(change):
 func set_current_percentage(percent):
 	currentPercentage= clamp(percent, 0 ,1)
 	emit_signal("percentage_change", currentPercentage)
-	$Label.text = str(ceil(currentPercentage * 10))
+	$Label.text = str(round(currentPercentage * 10))

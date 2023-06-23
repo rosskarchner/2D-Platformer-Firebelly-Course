@@ -7,7 +7,7 @@ var playerDeathScene = preload("res://scenes/player_death.tscn")
 var footstepParticles=preload("res://scenes/footstep_particles.tscn")
 var isDying = false
 
-enum State {NORMAL, DASHING, INPUT_DISABLED}
+enum State {NORMAL, DASHING, FLYING, INPUT_DISABLED}
 
 const SPEED = 100
 const MAX_HORIZONTAL_SPEED = 150
@@ -43,6 +43,8 @@ func _physics_process(delta):
 			physics_process_dashing(delta)
 		State.INPUT_DISABLED:
 			physics_process_input_disabled(delta)
+		State.FLYING:
+			physics_process_flying(delta)
 	isStateNew = false
 
 
@@ -107,6 +109,44 @@ func physics_process_normal(delta):
 	if has_dash and Input.is_action_just_pressed("dash"):
 		call_deferred("change_state", State.DASHING)
 		has_dash=false
+		
+	if Input.is_action_just_pressed("fly"):
+		call_deferred("change_state", State.FLYING)
+		
+func physics_process_flying(delta):
+	if isStateNew:
+		$DashParticles.emitting = false
+		$DashArea/CollisionShape2D.disabled = true
+		$HazardArea.collision_mask = defaultHazardMask
+	
+
+	
+	velocity.y += (-gravity * delta) /4
+
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis("ui_left", "ui_right")
+
+	if direction:
+
+		velocity.x = direction * clamp(SPEED, 0 ,MAX_HORIZONTAL_SPEED)
+		last_direction = direction
+		
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		current_acceleration = 0.0
+
+	var wasOnFloor = is_on_floor()
+	move_and_slide()
+	update_animation(direction)
+	
+		
+		
+	if has_dash and Input.is_action_just_pressed("dash"):
+		call_deferred("change_state", State.DASHING)
+		has_dash=false
+		
 
 func physics_process_dashing(delta):
 	if isStateNew:
@@ -137,10 +177,14 @@ func update_animation(direction):
 	if not is_on_floor() or currentState == State.DASHING: 
 		$AnimatedSprite2D.play("jump")
 	
+	elif currentState == State.FLYING:
+		$AnimatedSprite2D.play("fly")
+	
 	elif direction != 0:
 		$AnimatedSprite2D.play("run")
 		$AnimatedSprite2D.flip_h = direction > 0
-		
+	
+
 	else:
 		$AnimatedSprite2D.play("idle")
 		

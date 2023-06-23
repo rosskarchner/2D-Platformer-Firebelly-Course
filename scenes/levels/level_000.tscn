@@ -64,4 +64,4 @@ text = "You double jumped and dashed to get here-- so, good work I guess?"
 
 [node name="TutorialSign2" parent="." instance=ExtResource("10_a1abs")]
 position = Vector2(54, -86)
-text = "hELLOW AND WELCOME!"
+text = "HELLO AND WELCOME!"

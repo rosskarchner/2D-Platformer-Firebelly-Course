@@ -4,6 +4,9 @@ var screenTransitionScene = preload("res://scenes/ui/screen_transition.tscn")
 
 
 func transition_to_scene(scene):
+	for button in get_tree().get_nodes_in_group("animated_button"):
+		button.disabled = true
+	await get_tree().create_timer(.2).timeout
 	var screenTransition = screenTransitionScene.instantiate()
 	add_child(screenTransition)
 	await screenTransition.screen_covered

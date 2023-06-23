@@ -119,10 +119,11 @@ func physics_process_flying(delta):
 		$DashArea/CollisionShape2D.disabled = true
 		$HazardArea.collision_mask = defaultHazardMask
 	
-
+	if not Input.is_action_pressed("fly"):
+		call_deferred("change_state", State.NORMAL)
 	
 	velocity.y += (-gravity * delta) /4
-
+	#$AnimatedSprite2D.play("fly")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -137,15 +138,13 @@ func physics_process_flying(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		current_acceleration = 0.0
 
-	var wasOnFloor = is_on_floor()
 	move_and_slide()
 	update_animation(direction)
 	
 		
-		
-	if has_dash and Input.is_action_just_pressed("dash"):
-		call_deferred("change_state", State.DASHING)
-		has_dash=false
+#	if has_dash and Input.is_action_just_pressed("dash"):
+#		call_deferred("change_state", State.DASHING)
+#		has_dash=false
 		
 
 func physics_process_dashing(delta):
@@ -174,11 +173,12 @@ func physics_process_input_disabled(delta):
 	move_and_slide()
 
 func update_animation(direction):
-	if not is_on_floor() or currentState == State.DASHING: 
+	if currentState == State.FLYING:
+		$AnimatedSprite2D.play("fly")
+	
+	elif not is_on_floor() or currentState == State.DASHING: 
 		$AnimatedSprite2D.play("jump")
 	
-	elif currentState == State.FLYING:
-		$AnimatedSprite2D.play("fly")
 	
 	elif direction != 0:
 		$AnimatedSprite2D.play("run")

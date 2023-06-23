@@ -54,7 +54,7 @@ _data = {
 "hover": SubResource("Animation_72837")
 }
 
-[node name="AnimatedButton" type="Button"]
+[node name="AnimatedButton" type="Button" groups=["animated_button"]]
 custom_minimum_size = Vector2(96, 24)
 offset_right = 112.0
 offset_bottom = 31.0

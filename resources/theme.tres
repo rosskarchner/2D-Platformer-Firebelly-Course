@@ -1,8 +1,17 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b5lyr6r1oacdv"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://b5lyr6r1oacdv"]
 
 [ext_resource type="Texture2D" uid="uid://bkv2wlsrd5i5h" path="res://assets/ui/tile_0009.png" id="1_0w328"]
 [ext_resource type="Texture2D" uid="uid://m3smh23sty2" path="res://assets/ui/tile_0029.png" id="1_uqrag"]
 [ext_resource type="FontFile" uid="uid://biqudnlsuxnt" path="res://resources/BitPotion.ttf" id="1_v0cah"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lyg08"]
+texture = ExtResource("1_uqrag")
+texture_margin_left = 13.0
+texture_margin_top = 13.0
+texture_margin_right = 13.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(0, 0, 18, 18)
+modulate_color = Color(0.239216, 0.239216, 0.239216, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhvo7"]
 texture = ExtResource("1_0w328")
@@ -48,6 +57,7 @@ default_font = SubResource("FontVariation_lmt4i")
 default_font_size = 16
 Button/colors/font_color = Color(0.435294, 0.243137, 0.262745, 1)
 Button/colors/font_hover_color = Color(0.435294, 0.243137, 0.262745, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_lyg08")
 Button/styles/hover = SubResource("StyleBoxTexture_uhvo7")
 Button/styles/normal = SubResource("StyleBoxTexture_ictlr")
 Button/styles/pressed = SubResource("StyleBoxTexture_fpvdo")

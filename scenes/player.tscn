@@ -118,57 +118,57 @@ maxPitchScale = 1.5
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("3_nef7e")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("4_7afph")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("5_ao48y")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("6_j2yfi")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("7_jbxft")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("8_lv51y")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("4_7afph")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("9_blmtv")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("10_uhn1x")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer13" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("11_treix")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="AudioStreamPlayer14" type="AudioStreamPlayer" parent="FootstepAudioPlayer"]
 stream = ExtResource("12_3v4os")
-volume_db = -2.0
+volume_db = 4.0
 bus = &"Footsteps"
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]
@@ -200,7 +200,7 @@ shape = SubResource("RectangleShape2D_7fv47")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_j8m4c")
-animation = &"fly"
+animation = &"idle"
 autoplay = "idle"
 flip_h = true
 

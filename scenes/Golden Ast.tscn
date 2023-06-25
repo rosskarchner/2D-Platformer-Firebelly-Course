@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://qr3sk6t1o0cv"]
 
-[ext_resource type="Script" path="res://scenes/Golden Ast.gd" id="1_al8nb"]
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_swgud"]
 [ext_resource type="Texture2D" uid="uid://ccx3f31gf41w3" path="res://assets/enemy/character_0006.png" id="2_r4olt"]
 [ext_resource type="Texture2D" uid="uid://c7nx7rwvhsif7" path="res://assets/enemy/character_0007.png" id="3_l7il8"]
 [ext_resource type="Texture2D" uid="uid://dy7ddvhke4yut" path="res://assets/enemy/character_0017.png" id="4_11i6c"]
@@ -153,7 +153,9 @@ radius = 12.0
 [node name="Golden Astronout Enemy" type="CharacterBody2D"]
 position = Vector2(0, 5)
 collision_layer = 0
-script = ExtResource("1_al8nb")
+script = ExtResource("1_swgud")
+canJump = true
+detectCliff = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "spawn"

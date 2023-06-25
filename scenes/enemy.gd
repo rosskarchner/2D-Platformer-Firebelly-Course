@@ -1,11 +1,16 @@
 extends CharacterBody2D
 
+class_name Enemy
+
 enum Direction{RIGHT, LEFT}
 
 @export var startDirection: Direction = Direction.RIGHT
-var isSpawning = true
+@export var canJump = false
+@export var detectCliff = true
+@export var detectWall = true
+@export var enemyDeathScene: PackedScene
 
-var enemyDeathScene = preload("res://scenes/enemy_death.tscn")
+var isSpawning = true
 var maxSpeed = 25
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -13,7 +18,6 @@ var directionLookup ={Direction.LEFT: Vector2.LEFT, Direction.RIGHT: Vector2.RIG
 @onready var direction = directionLookup[startDirection]
 
 func _ready():
-	$GoalDetector.connect("area_entered", self.on_goal_entered)
 	$HitBoxArea.connect("area_entered", self.on_hitbox_enter)
 
 func _process(delta):
@@ -25,14 +29,23 @@ func _process(delta):
 	velocity.x = (direction * maxSpeed).x
 	if !is_on_floor(): 
 		velocity.y += gravity * delta
+	
+	
+	if canJump and $Visuals/WallDetector.is_colliding() and !$"Visuals/Can Jump Detecter".is_colliding():
+		jump()
 		
 	move_and_slide()
-	if !$Visuals/CliffDetector.is_colliding():
+	
+	
+	if  detectCliff and !$Visuals/CliffDetector.is_colliding():
 		change_direction()
 		
-	if $Visuals/WallDetector.is_colliding():
+	if detectWall and $Visuals/WallDetector.is_colliding():
 		change_direction()
 
+
+func jump():
+	velocity.y = -300
 
 func update_visual_direction():
 	var visuals = $Visuals
@@ -46,11 +59,10 @@ func update_visual_direction():
 func change_direction():
 	direction *= -1
 	update_visual_direction()
+	if canJump:
+		jump()
 
 
-
-func on_goal_entered(_area2d):
-	change_direction()
 
 func on_hitbox_enter(_area2d):
 	var scoreKeeper = $"/root/ScoreKeeper"

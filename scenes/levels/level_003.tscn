@@ -27,5 +27,5 @@ layer_0/tile_data = PackedInt32Array(65566, 1114113, 4, 131102, 1048577, 5, 1966
 position = Vector2(24, -91)
 
 [node name="TutorialSign" parent="." index="9"]
-position = Vector2(145, 12)
+position = Vector2(141, 5)
 text = "Soooooooooooooooooooo many coins!"

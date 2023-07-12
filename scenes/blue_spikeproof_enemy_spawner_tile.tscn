@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq8y0fbi3rrr3"]
+
+[ext_resource type="Script" path="res://scenes/blue_enemy_spawner_tile.gd" id="1_blyws"]
+[ext_resource type="PackedScene" uid="uid://b4byvamym6doq" path="res://scenes/enemy_spawner.tscn" id="2_imqtd"]
+[ext_resource type="PackedScene" uid="uid://mm22jf42ft44" path="res://scenes/spikeproof_blue_enemy.tscn" id="3_vly4c"]
+[ext_resource type="Texture2D" uid="uid://gd4oq60amv6l" path="res://assets/enemy/character_0023.png" id="4_3dk1s"]
+
+[node name="BlueSpikeproofEnemySpawnerTile" type="Node2D"]
+script = ExtResource("1_blyws")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_imqtd")]
+enemyScene = ExtResource("3_vly4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_3dk1s")
+
+[connection signal="ready" from="." to="EnemySpawner" method="_on_blue_enemy_spawner_tile_ready"]

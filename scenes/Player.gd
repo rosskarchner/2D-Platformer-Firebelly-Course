@@ -175,6 +175,7 @@ func physics_process_input_disabled(delta):
 func update_animation(direction):
 	if currentState == State.FLYING:
 		$AnimatedSprite2D.play("fly")
+		$AnimatedSprite2D.flip_h = direction > 0
 	
 	elif not is_on_floor() or currentState == State.DASHING: 
 		$AnimatedSprite2D.play("jump")

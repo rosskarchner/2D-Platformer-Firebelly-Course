@@ -21,3 +21,4 @@ func restart_level():
 func _process(_delta):
 	if Input.is_action_just_pressed("skip_level"):
 		increment_level()
+

@@ -85,7 +85,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8yoys"]
 radius = 8.0
 
-[node name="Heart" type="Node2D" groups=["heart"]]
+[node name="Heart" type="Node2D" groups=["Persist", "heart"]]
 script = ExtResource("1_kqv7p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

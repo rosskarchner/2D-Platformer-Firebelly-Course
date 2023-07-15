@@ -14,6 +14,24 @@ var collectedCoins = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawnPosition = %Player.global_position
+	if SaveGameManager.restored_data:
+		var persistNodes = get_tree().get_nodes_in_group("Persist")
+		await get_tree().create_timer(.2).timeout 
+		for i in persistNodes:
+				print(i)
+				i.queue_free()
+				
+		for node_data in SaveGameManager.restored_data:
+			var new_object = load(node_data["filename"]).instantiate()
+			get_node(node_data["parent"]).add_child(new_object)
+			new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])	
+			# Now we set the remaining variables.
+			for i in node_data.keys():
+				if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
+					continue
+				new_object.set(i, node_data[i])
+		
+	SaveGameManager.restored_data.resize(0)
 	register_player(%Player)
 	update_coin_total()
 	$Flag.connect("player_won", self.on_player_won)

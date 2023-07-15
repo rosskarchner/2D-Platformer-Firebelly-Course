@@ -26,6 +26,7 @@ ScreenTransitionManager="*res://scenes/screen_transition_manager.tscn"
 MouseCursor="*res://scenes/ui/mouse_cursor.tscn"
 ScoreKeeper="*res://scenes/score_keeper.tscn"
 MusicPlayer="*res://scenes/music_player.tscn"
+SaveGameManager="*res://scenes/util/save_game_manager.tscn"
 
 [display]
 

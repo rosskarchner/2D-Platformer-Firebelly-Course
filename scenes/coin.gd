@@ -13,3 +13,13 @@ func on_area_entered(_area2d):
 	ScoreKeeper.add_points(1)
 	
 	baseLevel.coin_collected()
+
+func save():
+	var save_dict = {
+		"pos_x": position.x,
+		"pos_y": position.y,
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+	}
+	
+	return save_dict

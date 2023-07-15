@@ -4,8 +4,15 @@ signal points_updated
 signal lives_updated
 
 
-var Score = 0
-var LivesLeft= 30
+var Score = 0:
+	set(new_score):
+		Score=new_score
+		emit_signal("points_updated")
+
+var LivesLeft= 30:
+	set(new_lives):
+		LivesLeft = new_lives
+		emit_signal("lives_updated")
 
 
 func add_points(new_points):

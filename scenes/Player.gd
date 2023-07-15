@@ -220,3 +220,14 @@ func spawn_footprints(scalefx=1.0):
 
 func disable_player_input():
 	change_state(State.INPUT_DISABLED)
+
+
+func save():
+	var save_dict = {
+		"pos_x": position.x,
+		"pos_y": position.y,
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+	}
+	
+	return save_dict

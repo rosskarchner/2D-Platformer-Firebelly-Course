@@ -1,5 +1,7 @@
 extends Node
 
+signal transition_complete
+
 var screenTransitionScene = preload("res://scenes/ui/screen_transition.tscn")
 
 

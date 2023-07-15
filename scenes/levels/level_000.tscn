@@ -74,19 +74,3 @@ text = "F TO FLY!!!!!!!!!!!!!!!!"
 [node name="TutorialSign2" parent="." instance=ExtResource("10_a1abs")]
 position = Vector2(54, -107)
 text = "HELLO AND WELCOME!"
-
-[connection signal="ready" from="TileMap/BlueEnemySpawnerTile" to="TileMap/BlueEnemySpawnerTile/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/BlueSpikeproofEnemySpawnerTile" to="TileMap/BlueSpikeproofEnemySpawnerTile/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49266" to="TileMap/@Node2D@49266/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49267" to="TileMap/@Node2D@49267/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49270" to="TileMap/@Node2D@49270/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49271" to="TileMap/@Node2D@49271/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49272" to="TileMap/@Node2D@49272/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49276" to="TileMap/@Node2D@49276/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49277" to="TileMap/@Node2D@49277/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49278" to="TileMap/@Node2D@49278/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49282" to="TileMap/@Node2D@49282/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49283" to="TileMap/@Node2D@49283/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49284" to="TileMap/@Node2D@49284/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49303" to="TileMap/@Node2D@49303/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@49411" to="TileMap/@Node2D@49411/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]

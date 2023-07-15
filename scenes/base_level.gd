@@ -35,6 +35,13 @@ func _ready():
 	register_player(%Player)
 	update_coin_total()
 	$Flag.connect("player_won", self.on_player_won)
+#	var next_level = LevelManager.nextLevelPacked.instantiate()
+#	var next_level_container = Node.new()
+#	next_level_container.name="NextLevel"
+#	next_level_container.add_child(next_level)
+#	add_child(next_level_container)
+	
+	
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):

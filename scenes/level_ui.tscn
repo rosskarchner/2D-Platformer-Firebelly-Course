@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwjt2oxum8tk2"]
+[gd_scene load_steps=6 format=3 uid="uid://dwjt2oxum8tk2"]
 
 [ext_resource type="Theme" uid="uid://b5lyr6r1oacdv" path="res://resources/theme.tres" id="1_ea8pg"]
 [ext_resource type="Script" path="res://scenes/level_ui.gd" id="1_j8hmh"]
 [ext_resource type="PackedScene" uid="uid://b3mc0akfdmslk" path="res://scenes/ui/coin_counter.tscn" id="2_4uxsx"]
+[ext_resource type="Texture2D" uid="uid://3qh54ltynfm5" path="res://assets/star/star.png" id="4_0epua"]
 [ext_resource type="Texture2D" uid="uid://bjr150fuba0d8" path="res://assets/heart/tile_0044.png" id="4_rxw8v"]
 
 [node name="LevelUI" type="CanvasLayer"]
@@ -23,7 +24,14 @@ layout_mode = 2
 [node name="CoinCounter" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_4uxsx")]
 layout_mode = 2
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_0epua")
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "10,000"

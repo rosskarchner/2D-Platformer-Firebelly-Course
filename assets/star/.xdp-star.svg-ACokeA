@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="43.699867mm"
+   height="41.848728mm"
+   viewBox="0 0 43.699867 41.848728"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter219"
+       x="-0.035109933"
+       y="-0.04365439"
+       width="1.0790815"
+       height="1.0850406">
+      <feConvolveMatrix
+         order="3 3"
+         kernelMatrix="0 -0.15 0 -0.15 1.6 -0.15 0 -0.15 0"
+         divisor="1"
+         in="SourceGraphic"
+         targetX="1"
+         targetY="1"
+         id="feConvolveMatrix217" />
+    </filter>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-16.800105,-32.71609)">
+    <path
+       style="fill:#ffd42a;stroke:#000000;stroke-width:0.965;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter219)"
+       id="path111"
+       d="m 51.086928,72.861375 -4.526774,-7.053721 -20.50192,7.160949 5.309636,-6.484937 -13.145909,-17.28563 7.80831,3.045809 12.377302,-17.844056 -0.483836,8.36735 20.795502,6.257397 -8.107336,2.125499 z" />
+  </g>
+</svg>

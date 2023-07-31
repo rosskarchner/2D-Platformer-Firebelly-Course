@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://bly8hvit1cqnm"]
+[gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://bly8hvit1cqnm"]
 
 [sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_n5r4n"]
 resource_name = "HighPassFilter"
@@ -24,6 +24,10 @@ feedback = 0.6
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_cnwhs"]
 resource_name = "Reverb"
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_dtq2p"]
+resource_name = "Phaser"
+depth = 1.1
 
 [resource]
 bus/1/name = &"SFX"
@@ -68,3 +72,11 @@ bus/5/effect/1/effect = SubResource("AudioEffectPhaser_b3h0u")
 bus/5/effect/1/enabled = true
 bus/5/effect/2/effect = SubResource("AudioEffectReverb_cnwhs")
 bus/5/effect/2/enabled = true
+bus/6/name = &"Collected"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"SFX"
+bus/6/effect/0/effect = SubResource("AudioEffectPhaser_dtq2p")
+bus/6/effect/0/enabled = true

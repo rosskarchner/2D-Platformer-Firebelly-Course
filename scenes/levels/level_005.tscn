@@ -60,21 +60,10 @@ layer_0/tile_data = PackedInt32Array(-65543, 1114113, 4, -7, 1048577, 4, 65529, 
 layer_0/tile_data = PackedInt32Array(262172, 720897, 6, 196636, 720897, 6, 131100, 720897, 6, 65564, 720897, 5, 131, 262145, 7, 132, 262145, 7, 133, 262145, 7, -9306084, 2, 65536, -9306083, 2, 65536, -9306082, 2, 65536, -9306081, 2, 65536, -9306080, 2, 65536, -9306079, 2, 65536, -9306078, 2, 65536, -9306077, 2, 65536, -9306076, 2, 65536, -9306075, 2, 65536, -9306074, 2, 65536, -9371609, 2, 65536, -9371608, 2, 65536, -9306073, 2, 65536, -9306072, 2, 65536, -9306071, 2, 65536, -9306070, 2, 65536, -9306069, 2, 65536, -9306068, 2, 65536, -9306067, 2, 65536, -9306066, 2, 65536, -9306065, 2, 65536, -9306064, 2, 65536, -9306063, 2, 65536, -9306062, 2, 65536, -9306061, 2, 65536, -9306060, 2, 65536, -9306059, 2, 65536, -9764829, 2, 65536, -9764828, 2, 65536, -9764827, 2, 65536, -9764826, 2, 65536, -9764825, 2, 65536, -9764824, 2, 65536, -9764823, 2, 65536, -9764822, 2, 65536, -9764821, 2, 65536, -9764820, 2, 65536, -9764819, 2, 65536, -9764818, 2, 65536, -9764817, 2, 65536, -9764816, 2, 65536, -9764815, 2, 65536, -9764814, 2, 65536, -9764813, 2, 65536, -9764812, 2, 65536, -8847321, 2, 65536, -8847305, 2, 65536)
 
 [node name="Player" parent="." index="7"]
-position = Vector2(1234, -38)
+position = Vector2(-265, 14)
 
 [node name="TutorialSign" parent="." index="8"]
 position = Vector2(-199, 12)
 text = "wOW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
-
-[connection signal="ready" from="TileMap/BlueSpikeproofEnemySpawnerTile" to="TileMap/BlueSpikeproofEnemySpawnerTile/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@93169" to="TileMap/@Node2D@93169/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@93170" to="TileMap/@Node2D@93170/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/BlueEnemySpawnerTile" to="TileMap/BlueEnemySpawnerTile/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@93610" to="TileMap/@Node2D@93610/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@93621" to="TileMap/@Node2D@93621/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@93625" to="TileMap/@Node2D@93625/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@93629" to="TileMap/@Node2D@93629/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@93639" to="TileMap/@Node2D@93639/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
-[connection signal="ready" from="TileMap/@Node2D@93897" to="TileMap/@Node2D@93897/EnemySpawner" method="_on_blue_enemy_spawner_tile_ready" flags=18]
 
 [editable path="GameCamera/Clouds"]
